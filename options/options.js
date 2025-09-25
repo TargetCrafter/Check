@@ -3,8 +3,7 @@
  * Comprehensive settings management and configuration interface
  */
 
-// Function | Localize HTML Page
-import { localizeHtmlPage } from "../scripts/modules/localization.js";
+
 
 class CheckOptions {
   constructor() {
@@ -3451,6 +3450,8 @@ class CheckOptions {
 // Initialize options page when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   // This will replace all the __MSG_***__ tags in all HTML pages, and perform the translation
-  localizeHtmlPage();
+  if (typeof window.localizeHtmlPage === "function") {
+    window.localizeHtmlPage();
+  }
   window.checkOptions = new CheckOptions();
 });

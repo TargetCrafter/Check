@@ -3,7 +3,7 @@
  * Handles URL defanging, branding, and user interactions for blocked pages
  */
 
-import { localizeHtmlPage } from "./modules/localization.js";
+
 
 // Parse URL parameters to get block details with enhanced defanging
 function parseUrlParams() {
@@ -581,7 +581,9 @@ async function loadBranding() {
 // Initialize page with CSP-compliant event handlers
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM loaded, initializing page");
-  localizeHtmlPage();
+  if (typeof window.localizeHtmlPage === "function") {
+    window.localizeHtmlPage();
+  }
   // Add event listeners for buttons (CSP compliant)
   document.getElementById("goBackBtn").addEventListener("click", goBack);
   document

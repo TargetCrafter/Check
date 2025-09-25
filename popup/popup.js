@@ -3,7 +3,7 @@
  * Handles popup UI interactions and communication with background script
  */
 
-import { localizeHtmlPage } from "../scripts/modules/localization.js";
+
 
 class CheckPopup {
   constructor() {
@@ -1988,7 +1988,9 @@ class CheckPopup {
 document.addEventListener("DOMContentLoaded", () => {
   // Add a small delay to ensure background script is ready
   setTimeout(() => {
-    localizeHtmlPage();
+    if (typeof window.localizeHtmlPage === "function") {
+      window.localizeHtmlPage();
+    }
     new CheckPopup();
   }, 100);
 });

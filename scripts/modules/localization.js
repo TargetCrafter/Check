@@ -1,7 +1,7 @@
 // scripts/modules/localization.js
 // Centralized localization function for all extension pages
 
-export function localizeHtmlPage() {
+function localizeHtmlPage() {
   var objects = document.getElementsByTagName('html');
   for (var j = 0; j < objects.length; j++) {
     var obj = objects[j];
@@ -14,3 +14,5 @@ export function localizeHtmlPage() {
     }
   }
 }
+
+window.localizeHtmlPage = localizeHtmlPage;
