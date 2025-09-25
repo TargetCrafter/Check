@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Check</title>
+  <title>__MSG_sidebarTitle__</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -23,11 +23,11 @@
           />
           <div class="brand-info">
             <h1 class="extension-title" id="brandingTitle">
-              Check
+              __MSG_sidebarTitle__
             </h1>
           </div>
         </div>
-        <button class="header-settings-btn" id="openSettings" data-tooltip="Open Extension Settings" aria-label="Open Extension Settings">
+  <button class="header-settings-btn" id="openSettings" data-tooltip="__MSG_openSettingsTooltip__" aria-label="__MSG_openSettingsTooltip__">
           <span class="material-icons">settings</span>
         </button>
       </header>
@@ -47,43 +47,42 @@
           id="blockedNotice"
           style="display: none"
         >
-          <div class="blocked-text">This site was blocked:</div>
+          <div class="blocked-text">__MSG_blockedSiteNotice__</div>
           <div class="blocked-url" id="blockedUrl"></div>
         </section>
 
         <!-- Current Page Info -->
         <section class="page-info" id="pageInfoSection">
-          <h3 class="section-title">Current Page</h3>
+          <h3 class="section-title">__MSG_currentPage__</h3>
           <div class="page-details">
-            <div class="page-url" id="currentUrl">Loading...</div>
+            <div class="page-url" id="currentUrl">__MSG_loading__</div>
             <div class="security-status" id="securityStatus">
               <span class="security-badge" id="securityBadge"
-                >Analyzing...</span
-              >
+                >__MSG_analyzing__</span>
             </div>
           </div>
 
           <div class="threat-summary" id="threatSummary" style="display: none">
-            <h4>Threats Detected</h4>
+            <h4>__MSG_threatsDetected__</h4>
             <ul id="threatList"></ul>
           </div>
         </section>
 
         <!-- Statistics -->
         <section class="stats-section">
-          <h3 class="section-title">Phishing Protection Statistics</h3>
+          <h3 class="section-title">__MSG_phishingProtectionStats__</h3>
           <div class="stats-grid">
             <div class="stat-item">
               <span class="stat-number" id="blockedThreats">0</span>
-              <span class="stat-label">Phishing Blocked</span>
+              <span class="stat-label">__MSG_phishingBlocked__</span>
             </div>
             <div class="stat-item">
               <span class="stat-number" id="scannedPages">0</span>
-              <span class="stat-label">Login Pages Verified</span>
+              <span class="stat-label">__MSG_loginPagesVerified__</span>
             </div>
             <div class="stat-item">
               <span class="stat-number" id="securityEvents">0</span>
-              <span class="stat-label">Security Alerts</span>
+              <span class="stat-label">__MSG_securityAlerts__</span>
             </div>
           </div>
         </section>
@@ -91,8 +90,8 @@
         <!-- Detection Debug Section -->
         <section class="debug-section" id="debugSection" style="display: none;">
           <h3 class="section-title">
-            Developer Debug
-            <button class="debug-toggle" id="debugToggle" title="Toggle debug info">
+            __MSG_developerDebug__
+            <button class="debug-toggle" id="debugToggle" title="__MSG_toggleDebugInfo__">
               <span class="material-icons">bug_report</span>
             </button>
           </h3>
@@ -100,30 +99,30 @@
             <div class="debug-actions">
               <button class="action-btn secondary small" id="retriggerAnalysis">
                 <span class="material-icons">refresh</span>
-                Re-run Analysis
+                __MSG_rerunAnalysis__
               </button>
               <button class="action-btn secondary small" id="showDetectionDetails">
                 <span class="material-icons">visibility</span>
-                Show Details
+                __MSG_showDetails__
               </button>
             </div>
 
             <div class="detection-results" id="detectionResults" style="display: none;">
               <div class="detection-section">
-                <h4>M365 Detection</h4>
-                <div class="detection-score" id="m365Score">Not analyzed</div>
+                <h4>__MSG_m365Detection__</h4>
+                <div class="detection-score" id="m365Score">__MSG_notAnalyzed__</div>
                 <div class="detection-elements" id="m365Elements"></div>
               </div>
 
               <div class="detection-section">
-                <h4>Phishing Indicators</h4>
-                <div class="detection-score" id="phishingScore">Not analyzed</div>
+                <h4>__MSG_phishingIndicators__</h4>
+                <div class="detection-score" id="phishingScore">__MSG_notAnalyzed__</div>
                 <div class="detection-threats" id="phishingThreats"></div>
               </div>
 
               <div class="detection-section">
-                <h4>DOM Observer Status</h4>
-                <div class="observer-status" id="observerStatus">Unknown</div>
+                <h4>__MSG_domObserverStatus__</h4>
+                <div class="observer-status" id="observerStatus">__MSG_unknown__</div>
               </div>
             </div>
           </div>
@@ -132,8 +131,8 @@
         <!-- Page Source Analysis (moved out of debug section) -->
         <section class="debug-section" id="pageSourceSection" style="display: none;">
           <h3 class="section-title">
-            Page Source Analysis
-            <button class="debug-toggle" id="pageSourceToggle" title="Toggle page source info">
+            __MSG_pageSourceAnalysis__
+            <button class="debug-toggle" id="pageSourceToggle" title="__MSG_togglePageSourceInfo__">
               <span class="material-icons">code</span>
             </button>
           </h3>
@@ -147,7 +146,7 @@
             </div>
             <div class="source-content" id="sourceContent" style="display: none;">
               <div class="source-controls">
-                <input type="text" id="sourceSearch" placeholder="Search in source..." class="source-search">
+                <input type="text" id="sourceSearch" placeholder="__MSG_searchInSource__" class="source-search">
                 <button class="action-btn secondary small" id="copySource">
                   <span class="material-icons">content_copy</span>
                   <span class="btn-text">Copy</span>
@@ -179,7 +178,7 @@
                 <input type="text" id="consoleSearch" placeholder="Search in logs..." class="source-search">
                 <button class="action-btn secondary small" id="copyConsoleLogs">
                   <span class="material-icons">content_copy</span>
-                  <span class="btn-text">Copy</span>
+                  <span class="btn-text">__MSG_copy__</span>
                 </button>
                 <button class="action-btn secondary small" id="refreshConsoleLogs">
                   <span class="material-icons">refresh</span>
@@ -215,12 +214,12 @@
       <!-- Footer -->
       <footer class="popup-footer">
         <div class="footer-links">
-          <a href="#" id="supportLink" class="footer-link">Support</a>
-          <a href="#" id="privacyLink" class="footer-link">Privacy</a>
-          <a href="#" id="aboutLink" class="footer-link">About</a>
+          <a href="#" id="supportLink" class="footer-link">__MSG_support__</a>
+          <a href="#" id="privacyLink" class="footer-link">__MSG_privacy__</a>
+          <a href="#" id="aboutLink" class="footer-link">__MSG_menuAbout__</a>
         </div>
         <div class="company-branding" id="companyBranding">
-          <span class="company-name" id="companyName"><a href="#" id="companyLink" class="footer-link">CyberDrain</a></span>
+          <span class="company-name" id="companyName"><a href="#" id="companyLink" class="footer-link">__MSG_companyDefault__</a></span>
         </div>
       </footer>
     </div>
@@ -228,7 +227,7 @@
     <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay" style="display: none">
       <div class="loading-spinner"></div>
-      <span class="loading-text">Analyzing page...</span>
+  <span class="loading-text">__MSG_analyzingPage__</span>
     </div>
 
     <!-- Notification Toast -->

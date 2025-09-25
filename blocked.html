@@ -291,93 +291,92 @@
         <div id="defaultIcon" class="icon material-icons">security</div>
       </div>
 
-      <h1>Access Blocked</h1>
+      <h1>__MSG_blockedTitle__</h1>
       <p class="subtitle">
-        This website has been blocked by your organization's security policy
+        __MSG_blockedSubtitle__
       </p>
 
       <div class="reason">
-        <div class="reason-title">Reason for blocking:</div>
+        <div class="reason-title">__MSG_blockedReasonTitle__</div>
         <div class="reason-text" id="blockReason">
-          This website looks like it has tried to steal your login credentials,
-          to prevent you from logging in we've blocked access.
+          __MSG_blockedReasonText__
         </div>
       </div>
 
       <div class="actions">
-        <button class="btn btn-primary" id="goBackBtn">Go Back</button>
+        <button class="btn btn-primary" id="goBackBtn">__MSG_goBackBtn__</button>
         <button class="btn btn-secondary" id="contactAdminBtn">
-          Contact Admin
+          __MSG_contactAdminBtn__
         </button>
       </div>
 
       <div class="details">
-        <div class="details-title">Block Details</div>
+        <div class="details-title">__MSG_blockDetailsTitle__</div>
         <ul class="details-list">
           <li>
-            <span>URL:</span>
+            <span>__MSG_blockedUrlLabel__</span>
             <span id="blockedUrl">--</span>
           </li>
           <li>
-            <span>Category:</span>
-            <span id="threatCategory">Security Threat</span>
+            <span>__MSG_blockedCategoryLabel__</span>
+            <span id="threatCategory">__MSG_blockedCategoryText__</span>
           </li>
         </ul>
       </div>
 
       <div class="technical-details" id="technicalDetails">
         <div class="technical-details-header">
-          <span>Technical Details</span>
+          <span>__MSG_technicalDetailsTitle__</span>
           <span class="technical-details-icon material-icons">expand_more</span>
         </div>
         <div class="technical-details-content">
           <div class="tech-section">
-            <div class="tech-section-title">Detection Scores</div>
+            <div class="tech-section-title">__MSG_detectionScoresTitle__</div>
             <div class="tech-item">
-              <span>Legitimacy Score:</span>
+              <span>__MSG_legitimacyScoreLabel__</span>
               <span id="techScore">--</span>
             </div>
             <div class="tech-item">
-              <span>Threshold:</span>
+              <span>__MSG_thresholdLabel__</span>
               <span id="techThreshold">--</span>
             </div>
           </div>
 
           <div class="tech-section">
-            <div class="tech-section-title">Threat Analysis</div>
+            <div class="tech-section-title">__MSG_threatAnalysisTitle__</div>
             <div class="tech-item">
-              <span>Indicators Found:</span>
+              <span>__MSG_indicatorsFoundLabel__</span>
               <span id="techIndicatorCount">--</span>
             </div>
             <div class="tech-item">
-              <span>Highest Severity:</span>
+              <span>__MSG_highestSeverityLabel__</span>
               <span id="techSeverity">--</span>
             </div>
             <div class="tech-item">
-              <span>Detection Method:</span>
+              <span>__MSG_detectionMethodLabel__</span>
               <span id="techDetectionMethod">--</span>
             </div>
           </div>
 
           <div class="tech-section" id="phishingIndicatorsSection">
-            <div class="tech-section-title">Phishing Indicators Detected</div>
+            <div class="tech-section-title">__MSG_phishingIndicatorsDetectedTitle__</div>
             <div id="techPhishingIndicators" style="font-size: 12px; color: #6b7280;">
-              <div style="font-style: italic; color: #9ca3af;">Loading...</div>
+              <div style="font-style: italic; color: #9ca3af;">__MSG_loading__</div>
             </div>
           </div>
 
           <div class="tech-section">
-            <div class="tech-section-title">Page Information</div>
+            <div class="tech-section-title">__MSG_pageInformationTitle__</div>
             <div class="tech-item">
-              <span>Page Title:</span>
+              <span>__MSG_pageTitleLabel__</span>
               <span id="techPageTitle">--</span>
             </div>
             <div class="tech-item">
-              <span>User Agent:</span>
+              <span>__MSG_userAgentLabel__</span>
               <span id="techUserAgent" style="font-size: 11px; word-break: break-all;">--</span>
             </div>
             <div class="tech-item">
-              <span>Timestamp:</span>
+              <span>__MSG_timestampLabel__</span>
               <span id="techTimestamp">--</span>
             </div>
           </div>
@@ -386,10 +385,10 @@
 
       <div class="footer">
         <div id="companyBranding">
-          Protected by <strong id="companyName">Check</strong>
+          __MSG_protectedBy__ <strong id="companyName">__MSG_companyDefault__</strong>
         </div>
         <div style="margin-top: 8px">
-          For support, contact your IT administrator
+          __MSG_supportContactText__
         </div>
       </div>
     </div>

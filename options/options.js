@@ -3,6 +3,9 @@
  * Comprehensive settings management and configuration interface
  */
 
+// Function | Localize HTML Page
+import { localizeHtmlPage } from "../scripts/modules/localization.js";
+
 class CheckOptions {
   constructor() {
     this.config = null;
@@ -436,7 +439,7 @@ class CheckOptions {
       console.warn("Options: Using fallback branding configuration");
       this.brandingConfig = {
         companyName: "CyberDrain",
-    companyURL: "https://cyberdrain.com/",
+        companyURL: "https://cyberdrain.com/",
         productName: "Check",
         primaryColor: "#F77F00",
         logoUrl: "images/icon48.png",
@@ -445,7 +448,7 @@ class CheckOptions {
       console.error("Error loading branding configuration:", error);
       this.brandingConfig = {
         companyName: "CyberDrain",
-		    companyURL: "https://cyberdrain.com/",
+        companyURL: "https://cyberdrain.com/",
         productName: "Check",
         primaryColor: "#F77F00",
         logoUrl: "images/icon48.png",
@@ -675,9 +678,9 @@ class CheckOptions {
           // Map weight to severity heuristically
           const w = r.weight || 0;
           let severity = 'low';
-            if (w >= 30) severity = 'critical';
-            else if (w >= 25) severity = 'high';
-            else if (w >= 15) severity = 'medium';
+          if (w >= 30) severity = 'critical';
+          else if (w >= 25) severity = 'high';
+          else if (w >= 15) severity = 'medium';
 
           synthesized.push({
             id: `syn_${r.id || 'rule'}_${synthesized.length + 1}`,
@@ -750,28 +753,28 @@ class CheckOptions {
       parts.push('<ul class="playground-result-list">');
       const severityOrder = { critical: 4, high: 3, medium: 2, low: 1 };
       evaluation.threats.sort((a,b)=> (severityOrder[b.severity]||0)-(severityOrder[a.severity]||0));
-        for (const t of evaluation.threats) {
-          const sevClass = t.severity === 'critical' ? 'error' : (t.severity === 'high' ? 'warning' : (t.severity === 'medium' ? 'success' : ''));
-          const actionLabel = t.action === 'block' ? 'Blocking' : (t.action === 'warn' ? 'Warn' : 'Monitor');
-            const categoryLabel = t.category ? this.escapeHtml(t.category) : 'general';
-          const severityBadgeClass = t.severity === 'critical' ? 'block' : (t.severity === 'high' ? 'warning' : (t.severity === 'medium' ? 'weight' : 'allow'));
-          const actionBadgeClass = t.action === 'block' ? 'block' : (t.action === 'warn' ? 'warning' : 'secondary');
-          const categoryBadgeClass = 'secondary';
-          let desc = t.description ? this.escapeHtml(t.description) : '';
-          // Remove generic 'page source' noise phrases to tighten list
-          if (desc) {
+      for (const t of evaluation.threats) {
+        const sevClass = t.severity === 'critical' ? 'error' : (t.severity === 'high' ? 'warning' : (t.severity === 'medium' ? 'success' : ''));
+        const actionLabel = t.action === 'block' ? 'Blocking' : (t.action === 'warn' ? 'Warn' : 'Monitor');
+        const categoryLabel = t.category ? this.escapeHtml(t.category) : 'general';
+        const severityBadgeClass = t.severity === 'critical' ? 'block' : (t.severity === 'high' ? 'warning' : (t.severity === 'medium' ? 'weight' : 'allow'));
+        const actionBadgeClass = t.action === 'block' ? 'block' : (t.action === 'warn' ? 'warning' : 'secondary');
+        const categoryBadgeClass = 'secondary';
+        let desc = t.description ? this.escapeHtml(t.description) : '';
+        // Remove generic 'page source' noise phrases to tighten list
+        if (desc) {
             desc = desc.replace(/\bpage\s+source\b/gi, '').replace(/\s{2,}/g,' ').trim();
-          }
-          const matchFrag = t.matchDetails ? `<code class="playground-code-fragment">${this.escapeHtml(t.matchDetails).slice(0,180)}</code>` : '';
-          parts.push(`<li class="playground-result-item ${sevClass}">` +
-            `<div><strong>${t.id}</strong> ` +
-            `<span class="playground-badge ${severityBadgeClass}" style="margin-left:4px;">${t.severity.toUpperCase()}</span>` +
-            `<span class="playground-badge ${actionBadgeClass}" style="margin-left:4px;">${actionLabel}</span>` +
-            `<span class="playground-badge ${categoryBadgeClass}" style="margin-left:4px;">${categoryLabel}</span>` +
-            `${desc ? `<span style=\"font-size:11px;opacity:.85;display:block;margin-top:4px;\">${desc}</span>`:''}` +
-            `${matchFrag}</div>` +
-          `</li>`);
         }
+          const matchFrag = t.matchDetails ? `<code class="playground-code-fragment">${this.escapeHtml(t.matchDetails).slice(0,180)}</code>` : '';
+        parts.push(`<li class="playground-result-item ${sevClass}">` +
+          `<div><strong>${t.id}</strong> ` +
+          `<span class="playground-badge ${severityBadgeClass}" style="margin-left:4px;">${t.severity.toUpperCase()}</span>` +
+          `<span class="playground-badge ${actionBadgeClass}" style="margin-left:4px;">${actionLabel}</span>` +
+          `<span class="playground-badge ${categoryBadgeClass}" style="margin-left:4px;">${categoryLabel}</span>` +
+            `${desc ? `<span style=\"font-size:11px;opacity:.85;display:block;margin-top:4px;\">${desc}</span>`:''}` +
+          `${matchFrag}</div>` +
+          `</li>`);
+      }
       parts.push('</ul>');
       parts.push('</div>');
     } else {
@@ -941,7 +944,7 @@ class CheckOptions {
     this.elements.productName.value = this.brandingConfig?.productName || "";
     this.elements.supportEmail.value = this.brandingConfig?.supportEmail || "";
     this.elements.primaryColor.value =
-    this.brandingConfig?.primaryColor || "#F77F00";
+      this.brandingConfig?.primaryColor || "#F77F00";
     this.elements.logoUrl.value = this.brandingConfig?.logoUrl || "";
   }
 
@@ -1115,7 +1118,7 @@ class CheckOptions {
       // Detection settings
       customRulesUrl: this.elements.customRulesUrl?.value || "",
       updateInterval: parseInt(this.elements.updateInterval?.value || 24),
-      
+
       // URL Allowlist settings
       urlAllowlist: this.elements.urlAllowlist?.value
         ? this.elements.urlAllowlist.value.split('\n').filter(line => line.trim())
@@ -1318,13 +1321,13 @@ class CheckOptions {
         <div class="config-section-title">Basic Information</div>
         <div class="config-item"><strong>Version:</strong> <span class="config-value">${
           config.version || "Unknown"
-        }</span></div>
+      }</span></div>
         <div class="config-item"><strong>Last Updated:</strong> <span class="config-value">${
           config.lastUpdated || "Unknown"
-        }</span></div>
+      }</span></div>
         <div class="config-item"><strong>Description:</strong> ${
           config.description || "No description"
-        }</div>
+      }</div>
       </div>
     `);
 
@@ -1349,18 +1352,18 @@ class CheckOptions {
         <div class="config-section">
           <div class="config-section-title">Trusted Login Patterns (${
             config.trusted_login_patterns.length
-          })</div>
+        })</div>
           ${config.trusted_login_patterns
-            .slice(0, 5)
-            .map((pattern) => `<div class="config-item">• ${pattern}</div>`)
-            .join("")}
+          .slice(0, 5)
+          .map((pattern) => `<div class="config-item">• ${pattern}</div>`)
+          .join("")}
           ${
             config.trusted_login_patterns.length > 5
               ? `<div class="config-item">... and ${
                   config.trusted_login_patterns.length - 5
-                } more</div>`
-              : ""
-          }
+          } more</div>`
+          : ""
+        }
         </div>
       `);
     }
@@ -1382,7 +1385,7 @@ class CheckOptions {
           <div class="config-item"><strong>Secondary Elements:</strong> <span class="config-value">${secondaryCount}</span></div>
           <div class="config-item"><strong>Description:</strong> ${
             req.description || "No description"
-          }</div>
+        }</div>
         </div>
       `);
     }
@@ -1396,18 +1399,18 @@ class CheckOptions {
         <div class="config-section">
           <div class="config-section-title">Microsoft Domain Patterns (${
             config.microsoft_domain_patterns.length
-          })</div>
+        })</div>
           ${config.microsoft_domain_patterns
-            .slice(0, 10)
-            .map((pattern) => `<div class="config-item">• ${pattern}</div>`)
-            .join("")}
+          .slice(0, 10)
+          .map((pattern) => `<div class="config-item">• ${pattern}</div>`)
+          .join("")}
           ${
             config.microsoft_domain_patterns.length > 10
               ? `<div class="config-item">... and ${
                   config.microsoft_domain_patterns.length - 10
-                } more</div>`
-              : ""
-          }
+          } more</div>`
+          : ""
+        }
         </div>
       `);
     }
@@ -1428,37 +1431,37 @@ class CheckOptions {
           <div class="config-section-title">Exclusion System</div>
           <div class="config-item"><strong>Domain Patterns:</strong> <span class="config-value">${
             domainPatterns.length
-          }</span></div>
+        }</span></div>
           <div class="config-item"><strong>Legitimate Context Indicators:</strong> <span class="config-value">${
             legitimateContexts.length
-          }</span></div>
+        }</span></div>
           <div class="config-item"><strong>Legitimate SSO Patterns:</strong> <span class="config-value">${
             legitimateSsoPatterns.length
-          }</span></div>
+        }</span></div>
           <div class="config-item"><strong>Suspicious Context Indicators:</strong> <span class="config-value">${
             suspiciousContexts.length
-          }</span></div>
+        }</span></div>
           <div class="config-item"><strong>Description:</strong> ${
             exclusions.description || "No description"
-          }</div>
+        }</div>
           ${
             domainPatterns.length > 0
-              ? `<div class="config-subsection">
+          ? `<div class="config-subsection">
               <div class="config-subsection-title">Sample Domain Patterns:</div>
               ${domainPatterns
-                .slice(0, 5)
-                .map((pattern) => `<div class="config-item">• ${pattern}</div>`)
-                .join("")}
+            .slice(0, 5)
+            .map((pattern) => `<div class="config-item">• ${pattern}</div>`)
+            .join("")}
               ${
                 domainPatterns.length > 5
                   ? `<div class="config-item">... and ${
                       domainPatterns.length - 5
-                    } more</div>`
-                  : ""
-              }
-            </div>`
-              : ""
+            } more</div>`
+            : ""
           }
+            </div>`
+          : ""
+        }
         </div>
       `);
     }
@@ -1497,10 +1500,10 @@ class CheckOptions {
         <div class="config-section">
           <div class="config-section-title">Trusted Origins (${
             config.trusted_origins.length
-          })</div>
+        })</div>
           ${config.trusted_origins
-            .map((origin) => `<div class="config-item">• ${origin}</div>`)
-            .join("")}
+          .map((origin) => `<div class="config-item">• ${origin}</div>`)
+          .join("")}
         </div>
       `);
     }
@@ -1545,22 +1548,22 @@ class CheckOptions {
           <div class="config-section-title">Rogue Apps Detection</div>
           <div class="config-item"><strong>Enabled:</strong> <span class="config-value">${
             rogue.enabled ? "Yes" : "No"
-          }</span></div>
+        }</span></div>
           <div class="config-item"><strong>Source:</strong> <span class="config-value">${
             rogue.source_url ? rogue.source_url : "None"
-          }</span></div>
+        }</span></div>
           <div class="config-item"><strong>Cache Duration:</strong> <span class="config-value">${Math.round(
-            (rogue.cache_duration || 0) / 3600000
-          )}h</span></div>
+          (rogue.cache_duration || 0) / 3600000
+        )}h</span></div>
           <div class="config-item"><strong>Update Interval:</strong> <span class="config-value">${Math.round(
-            (rogue.update_interval || 0) / 3600000
-          )}h</span></div>
+          (rogue.update_interval || 0) / 3600000
+        )}h</span></div>
           <div class="config-item"><strong>Detection Action:</strong> <span class="config-value">${
             rogue.detection_action || "None"
-          }</span></div>
+        }</span></div>
           <div class="config-item"><strong>Auto Update:</strong> <span class="config-value">${
             rogue.auto_update ? "Yes" : "No"
-          }</span></div>
+        }</span></div>
         </div>
       `);
     }
@@ -1615,14 +1618,14 @@ class CheckOptions {
         <div class="config-item"><strong>Microsoft 365 Detection Elements:</strong> <span class="config-value">${totalDetectionElements}</span></div>
         <div class="config-item"><strong>Trusted Login Patterns:</strong> <span class="config-value">${
           config.trusted_login_patterns
-            ? config.trusted_login_patterns.length
-            : 0
-        }</span></div>
+        ? config.trusted_login_patterns.length
+        : 0
+      }</span></div>
         <div class="config-item"><strong>Microsoft Domain Patterns:</strong> <span class="config-value">${
           config.microsoft_domain_patterns
-            ? config.microsoft_domain_patterns.length
-            : 0
-        }</span></div>
+        ? config.microsoft_domain_patterns.length
+        : 0
+      }</span></div>
         <div class="config-item"><strong>Critical Severity Rules:</strong> <span class="config-value">${criticalRules}</span></div>
         <div class="config-item"><strong>Total Exclusions:</strong> <span class="config-value">${totalExclusions}</span></div>
       </div>
@@ -1917,8 +1920,8 @@ class CheckOptions {
         html += `<div class="log-details-field">
           <div class="log-details-field-label">Timestamp <span class="mobile-copy-hint">(tap to copy)</span></div>
           <div class="log-details-field-value mobile-copyable" data-copy-value="${this.escapeHtml(
-            timestampValue
-          )}">${timestampValue}</div>
+          timestampValue
+        )}">${timestampValue}</div>
         </div>`;
       } else {
         html += `<div class="log-details-field">
@@ -1926,8 +1929,8 @@ class CheckOptions {
           <div class="log-details-field-value-container">
             <div class="log-details-field-value">${timestampValue}</div>
             <button class="copy-button" title="Copy timestamp" data-copy-value="${this.escapeHtml(
-              timestampValue
-            )}">
+          timestampValue
+        )}">
               <span class="material-icons" style="font-size: 14px;">content_copy</span>
             </button>
           </div>
@@ -1940,8 +1943,8 @@ class CheckOptions {
         html += `<div class="log-details-field">
           <div class="log-details-field-label">Category <span class="mobile-copy-hint">(tap to copy)</span></div>
           <div class="log-details-field-value mobile-copyable" data-copy-value="${this.escapeHtml(
-            log.category
-          )}">${log.category}</div>
+          log.category
+        )}">${log.category}</div>
         </div>`;
       } else {
         html += `<div class="log-details-field">
@@ -1949,8 +1952,8 @@ class CheckOptions {
           <div class="log-details-field-value-container">
             <div class="log-details-field-value">${log.category}</div>
             <button class="copy-button" title="Copy category" data-copy-value="${this.escapeHtml(
-              log.category
-            )}">
+          log.category
+        )}">
               <span class="material-icons" style="font-size: 14px;">content_copy</span>
             </button>
           </div>
@@ -1963,8 +1966,8 @@ class CheckOptions {
         html += `<div class="log-details-field">
           <div class="log-details-field-label">Level <span class="mobile-copy-hint">(tap to copy)</span></div>
           <div class="log-details-field-value mobile-copyable" data-copy-value="${this.escapeHtml(
-            log.level
-          )}">${log.level}</div>
+          log.level
+        )}">${log.level}</div>
         </div>`;
       } else {
         html += `<div class="log-details-field">
@@ -1972,8 +1975,8 @@ class CheckOptions {
           <div class="log-details-field-value-container">
             <div class="log-details-field-value">${log.level}</div>
             <button class="copy-button" title="Copy level" data-copy-value="${this.escapeHtml(
-              log.level
-            )}">
+          log.level
+        )}">
               <span class="material-icons" style="font-size: 14px;">content_copy</span>
             </button>
           </div>
@@ -1986,8 +1989,8 @@ class CheckOptions {
         html += `<div class="log-details-field">
           <div class="log-details-field-label">Source <span class="mobile-copy-hint">(tap to copy)</span></div>
           <div class="log-details-field-value mobile-copyable" data-copy-value="${this.escapeHtml(
-            log.source
-          )}">${log.source}</div>
+          log.source
+        )}">${log.source}</div>
         </div>`;
       } else {
         html += `<div class="log-details-field">
@@ -1995,8 +1998,8 @@ class CheckOptions {
           <div class="log-details-field-value-container">
             <div class="log-details-field-value">${log.source}</div>
             <button class="copy-button" title="Copy source" data-copy-value="${this.escapeHtml(
-              log.source
-            )}">
+          log.source
+        )}">
               <span class="material-icons" style="font-size: 14px;">content_copy</span>
             </button>
           </div>
@@ -2019,16 +2022,16 @@ class CheckOptions {
             html += `<div class="log-details-field" style="grid-column: 1 / -1;">
               <div class="log-details-field-label">${key} <span class="mobile-copy-hint">(tap to copy)</span></div>
               <div class="log-details-content mobile-copyable" data-copy-value="${this.escapeHtml(
-                jsonValue
-              )}">${this.escapeHtml(jsonValue)}</div>
+              jsonValue
+            )}">${this.escapeHtml(jsonValue)}</div>
             </div>`;
           } else {
             html += `<div class="log-details-field" style="grid-column: 1 / -1;">
               <div class="log-details-field-label">${key}</div>
               <div class="log-details-content-container">
                 <div class="log-details-content">${this.escapeHtml(
-                  jsonValue
-                )}</div>
+              jsonValue
+            )}</div>
                 <button class="copy-button" title="Copy ${key}" data-copy-value="${this.escapeHtml(
               jsonValue
             )}">
@@ -2081,16 +2084,16 @@ class CheckOptions {
             html += `<div class="log-details-field" style="grid-column: 1 / -1;">
               <div class="log-details-field-label">${key} <span class="mobile-copy-hint">(tap to copy)</span></div>
               <div class="log-details-content mobile-copyable" data-copy-value="${this.escapeHtml(
-                jsonValue
-              )}">${this.escapeHtml(jsonValue)}</div>
+              jsonValue
+            )}">${this.escapeHtml(jsonValue)}</div>
             </div>`;
           } else {
             html += `<div class="log-details-field" style="grid-column: 1 / -1;">
               <div class="log-details-field-label">${key}</div>
               <div class="log-details-content-container">
                 <div class="log-details-content">${this.escapeHtml(
-                  jsonValue
-                )}</div>
+              jsonValue
+            )}</div>
                 <button class="copy-button" title="Copy ${key}" data-copy-value="${this.escapeHtml(
               jsonValue
             )}">
@@ -2129,8 +2132,8 @@ class CheckOptions {
       html += `<div class="log-details-section">
         <div class="log-details-title">Raw Data <span class="mobile-copy-hint">(tap to copy)</span></div>
         <div class="log-details-content mobile-copyable" data-copy-value="${this.escapeHtml(
-          rawJson
-        )}">${this.escapeHtml(rawJson)}</div>
+        rawJson
+      )}">${this.escapeHtml(rawJson)}</div>
       </div>`;
     } else {
       html += `<div class="log-details-section">
@@ -2138,8 +2141,8 @@ class CheckOptions {
         <div class="log-details-content-container">
           <div class="log-details-content">${this.escapeHtml(rawJson)}</div>
           <button class="copy-button" title="Copy raw JSON" data-copy-value="${this.escapeHtml(
-            rawJson
-          )}">
+        rawJson
+      )}">
             <span class="material-icons" style="font-size: 14px;">content_copy</span>
           </button>
         </div>
@@ -2883,7 +2886,7 @@ class CheckOptions {
           try {
             return `Accessed: ${
               new URL(log.event.url).hostname
-            }${formatRedirectInfo(log.event)}`;
+              }${formatRedirectInfo(log.event)}`;
           } catch {
             return `Accessed: ${log.event.url || "unknown"}${formatRedirectInfo(
               log.event
@@ -2893,11 +2896,11 @@ class CheckOptions {
           try {
             return `Legitimate access: ${
               new URL(log.event.url).hostname
-            }${formatRedirectInfo(log.event)}`;
+              }${formatRedirectInfo(log.event)}`;
           } catch {
             return `Legitimate access: ${
               log.event.url || "unknown"
-            }${formatRedirectInfo(log.event)}`;
+              }${formatRedirectInfo(log.event)}`;
           }
         case "content_threat_detected":
           let details = `Malicious content detected`;
@@ -3447,5 +3450,7 @@ class CheckOptions {
 
 // Initialize options page when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
+  // This will replace all the __MSG_***__ tags in all HTML pages, and perform the translation
+  localizeHtmlPage();
   window.checkOptions = new CheckOptions();
 });

@@ -3,6 +3,8 @@
  * Handles popup UI interactions and communication with background script
  */
 
+import { localizeHtmlPage } from "../scripts/modules/localization.js";
+
 class CheckPopup {
   constructor() {
     this.currentTab = null;
@@ -1986,6 +1988,7 @@ class CheckPopup {
 document.addEventListener("DOMContentLoaded", () => {
   // Add a small delay to ensure background script is ready
   setTimeout(() => {
+    localizeHtmlPage();
     new CheckPopup();
   }, 100);
 });
