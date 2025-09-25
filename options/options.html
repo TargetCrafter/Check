@@ -148,45 +148,45 @@
                         <h3>__MSG_detectionConfiguration__</h3>
                         <div class="setting-item">
                             <label class="setting-label">
-                                Config URL
-                                <input type="url" id="customRulesUrl" class="setting-input" placeholder="https://raw.githubusercontent.com/CyberDrain/ProjectX/refs/heads/main/rules/detection-rules.json">
+                                __MSG_configUrlLabel__
+                                <input type="url" id="customRulesUrl" class="setting-input" placeholder="__MSG_configUrlPlaceholder__">
                             </label>
-                            <p class="setting-description">URL to fetch detection configuration from (leave empty for default)</p>
+                            <p class="setting-description">__MSG_configUrlDescription__</p>
                         </div>
 
                         <div class="setting-item">
                             <label class="setting-label">
-                                Update Interval (hours)
-                                <input type="number" id="updateInterval" class="setting-input" min="1" max="168" value="24">
+                                __MSG_updateIntervalLabel__
+                                <input type="number" id="updateInterval" class="setting-input" min="1" max="168" value="24" placeholder="__MSG_updateIntervalPlaceholder__">
                             </label>
-                            <p class="setting-description">How often to update detection rules</p>
+                            <p class="setting-description">__MSG_updateIntervalDescription__</p>
                         </div>
 
                         <div class="setting-item">
                             <label class="setting-label">
-                                URL Allowlist (Regex or URL with wildcards)
-                                <textarea id="urlAllowlist" class="setting-textarea" rows="6" placeholder="Enter URLs or regex patterns, one per line:&#10;&#10;Simple URLs with wildcards:&#10;https://google.com/*&#10;https://*.microsoft.com/*&#10;&#10;Advanced regex patterns:&#10;^https://trusted\.example\.com/.*"></textarea>
+                                __MSG_urlAllowlistLabel__
+                                <textarea id="urlAllowlist" class="setting-textarea" rows="6" placeholder="__MSG_urlAllowlistPlaceholder__"></textarea>
                             </label>
-                            <p class="setting-description">Add URLs or regex patterns to allowlist from detection. Use simple URLs with * wildcards (e.g., https://google.com/*) or advanced regex patterns. These will be added to the exclusion rules without replacing the entire ruleset.</p>
+                            <p class="setting-description">__MSG_urlAllowlistDescription__</p>
                         </div>
 
                         <div class="setting-item">
                             <div class="setting-actions">
                                 <button class="btn btn-secondary" id="refreshDetectionRules">
                                     <span class="material-icons">refresh</span>
-                                    Update Rules Now
+                                    __MSG_updateRulesNowBtn__
                                 </button>
                             </div>
-                            <p class="setting-description">Manually update detection rules from the remote source</p>
+                            <p class="setting-description">__MSG_updateRulesNowDescription__</p>
                         </div>
                     </div>
 
                     <div class="setting-group">
                         <div class="config-header">
-                            <h3>Configuration Overview</h3>
+                            <h3>__MSG_configOverview__</h3>
                             <button class="btn btn-secondary small" id="toggleConfigView">
                                 <span class="material-icons">code</span>
-                                Show Raw JSON
+                                __MSG_showRawJson__
                             </button>
                         </div>
                         <div id="configDisplay" class="config-display">
@@ -197,10 +197,10 @@
 
                     <div class="setting-group" id="rulePlaygroundGroup">
                         <div class="config-header">
-                            <h3>Rule Playground (Beta)</h3>
-                            <button class="btn btn-secondary small" id="loadCurrentRulesBtn" title="Load current cached rules into editor">
+                            <h3>__MSG_rulePlaygroundHeader__</h3>
+                            <button class="btn btn-secondary small" id="loadCurrentRulesBtn" title="__MSG_loadCurrentRulesTooltip__">
                                 <span class="material-icons">download</span>
-                                Load Current
+                                __MSG_loadCurrentRulesBtn__
                             </button>
                         </div>
                         <p class="setting-description">__MSG_rulePlaygroundDescription__</p>
@@ -210,9 +210,9 @@
                                     <textarea id="playgroundRulesInput" class="playground-textarea" data-playground-input="true" spellcheck="false" placeholder="Paste a single rule object or an array / partial detection-rules.json fragment..."></textarea>
                                 </label>
                                 <div class="playground-inline-actions">
-                                    <button class="btn btn-secondary" id="validateRulesBtn"><span class="material-icons">check</span> Validate</button>
-                                    <button class="btn btn-secondary" id="sanitizeRulesBtn"><span class="material-icons">cleaning_services</span> Sanitize</button>
-                                    <button class="btn btn-secondary" id="copyRulesBtn"><span class="material-icons">content_copy</span> Copy</button>
+                                    <button class="btn btn-secondary" id="validateRulesBtn"><span class="material-icons">check</span> __MSG_validateBtn__</button>
+                                    <button class="btn btn-secondary" id="sanitizeRulesBtn"><span class="material-icons">cleaning_services</span> __MSG_sanitizeBtn__</button>
+                                    <button class="btn btn-secondary" id="copyRulesBtn"><span class="material-icons">content_copy</span> __MSG_copyBtn__</button>
                                 </div>
                             </div>
                             <div class="playground-column">
@@ -223,8 +223,8 @@
                                     <textarea id="playgroundHtmlInput" class="playground-textarea small" data-playground-input="true" spellcheck="false" placeholder="Paste sample page HTML here to simulate scanning..."></textarea>
                                 </label>
                                 <div class="playground-inline-actions">
-                                    <button class="btn btn-primary" id="runRuleTestBtn"><span class="material-icons">play_arrow</span> Test Rules</button>
-                                    <button class="btn btn-secondary" id="clearPlaygroundBtn"><span class="material-icons">clear</span> Clear</button>
+                                    <button class="btn btn-primary" id="runRuleTestBtn"><span class="material-icons">play_arrow</span> __MSG_testRulesBtn__</button>
+                                    <button class="btn btn-secondary" id="clearPlaygroundBtn"><span class="material-icons">clear</span> __MSG_clearBtn__</button>
                                 </div>
                             </div>
                         </div>
@@ -238,30 +238,31 @@
 
             <!-- Logs Section -->
             <section id="logs-section" class="settings-section">
+                <h3>__MSG_logsSectionHeader__</h3>
                 <div class="logs-controls">
                     <div class="logs-filters">
                         <label class="setting-label">__MSG_logFilterLabel__
                             <input type="checkbox" id="enableDebugLogging" class="setting-checkbox">
                             <span class="checkbox-custom"></span>
-                            Enable Debug Logging
+                            __MSG_enableDebugLogging__
                         </label>
                         <label class="setting-label">__MSG_logTypeLabel__
                             <input type="checkbox" id="enableDeveloperConsoleLogging" class="setting-checkbox">
                             <span class="checkbox-custom"></span>
-                            Developer Mode
+                            __MSG_developerMode__
                         </label>
                         <label class="setting-label">__MSG_logThreatLabel__
                             <input type="checkbox" id="simulateEnterpriseMode" class="setting-checkbox">
                             <span class="checkbox-custom"></span>
-                            Simulate Enterprise Policy Mode (Dev Only)
+                            __MSG_simulateEnterprisePolicy__
                         </label>
                         <select id="logFilter" class="setting-select" title="__MSG_filterLogEntries__">
-                            <option value="all">All Events</option>
-                            <option value="security">Security Events</option>
-                            <option value="url_access">URL Access</option>
-                            <option value="threat_detected">Threats Detected</option>
-                            <option value="page_scanned">Page Scans</option>
-                            <option value="debug">Debug Events</option>
+                            <option value="all">__MSG_allEvents__</option>
+                            <option value="security">__MSG_securityEvents__</option>
+                            <option value="url_access">__MSG_urlAccess__</option>
+                            <option value="threat_detected">__MSG_threatsDetected__</option>
+                            <option value="page_scanned">__MSG_pageScans__</option>
+                            <option value="debug">__MSG_debugEvents__</option>
                         </select>
                         <button class="btn btn-primary" id="refreshLogs">__MSG_refreshLogs__</button>
                         <button class="btn btn-secondary" id="clearLogs">__MSG_clearLogs__</button>
@@ -281,12 +282,12 @@
                     </div>
                     <div class="logs-list" id="logsList">
                         <div class="log-entry">
-                            <div class="log-column timestamp">Loading...</div>
-                            <div class="log-column event-type">system</div>
+                            <div class="log-column timestamp">__MSG_loading__</div>
+                            <div class="log-column event-type">__MSG_system__</div>
                             <div class="log-column url">-</div>
                             <div class="log-column threat-level">-</div>
                             <div class="log-column action">-</div>
-                            <div class="log-column details">Loading activity logs...</div>
+                            <div class="log-column details">__MSG_loadingActivityLogs__</div>
                         </div>
                     </div>
                 </div>
@@ -299,34 +300,34 @@
                         <h3>__MSG_companyInformation__</h3>
                         <div class="setting-item">
                             <label class="setting-label">
-                                Company Name
-                                <input type="text" id="companyName" class="setting-input" placeholder="Your Company Name">
+                                __MSG_companyNameLabel__
+                                <input type="text" id="companyName" class="setting-input" placeholder="__MSG_companyNamePlaceholder__">
                             </label>
-                            <p class="setting-description">Company name displayed in the extension</p>
+                            <p class="setting-description">__MSG_companyNameDescription__</p>
                         </div>
 
                         <div class="setting-item">
                             <label class="setting-label">
-                                Company URL
-                                <input type="url" id="companyURL" class="setting-input" placeholder="https://yourcompany.com">
+                                __MSG_companyUrlLabel__
+                                <input type="url" id="companyURL" class="setting-input" placeholder="__MSG_companyUrlPlaceholder__">
                             </label>
-                            <p class="setting-description">Your company website URL</p>
+                            <p class="setting-description">__MSG_companyUrlDescription__</p>
                         </div>
 
                         <div class="setting-item">
                             <label class="setting-label">
-                                Product Name
-                                <input type="text" id="productName" class="setting-input" placeholder="Custom Extension Name">
+                                __MSG_productNameLabel__
+                                <input type="text" id="productName" class="setting-input" placeholder="__MSG_productNamePlaceholder__">
                             </label>
-                            <p class="setting-description">Custom name for the extension</p>
+                            <p class="setting-description">__MSG_productNameDescription__</p>
                         </div>
 
                         <div class="setting-item">
                             <label class="setting-label">
-                                Support Email
-                                <input type="email" id="supportEmail" class="setting-input" placeholder="support@yourcompany.com">
+                                __MSG_supportEmailLabel__
+                                <input type="email" id="supportEmail" class="setting-input" placeholder="__MSG_supportEmailPlaceholder__">
                             </label>
-                            <p class="setting-description">Email address for user support</p>
+                            <p class="setting-description">__MSG_supportEmailDescription__</p>
                         </div>
                     </div>
 
@@ -334,18 +335,18 @@
                         <h3>__MSG_visualCustomization__</h3>
                         <div class="setting-item">
                             <label class="setting-label">
-                                Primary Color
+                                __MSG_primaryColorLabel__
                                 <input type="color" id="primaryColor" class="setting-color" value="#2563eb">
                             </label>
-                            <p class="setting-description">Main theme color for the extension</p>
+                            <p class="setting-description">__MSG_primaryColorDescription__</p>
                         </div>
 
                         <div class="setting-item">
                             <label class="setting-label">
-                                Logo URL
-                                <input type="url" id="logoUrl" class="setting-input" placeholder="https://yourcompany.com/logo.png">
+                                __MSG_logoUrlLabel__
+                                <input type="url" id="logoUrl" class="setting-input" placeholder="__MSG_logoUrlPlaceholder__">
                             </label>
-                            <p class="setting-description">URL to your company logo</p>
+                            <p class="setting-description">__MSG_logoUrlDescription__</p>
                         </div>
                     </div>
                 </div>
@@ -354,12 +355,12 @@
                     <h3>__MSG_brandingPreview__</h3>
                     <div class="preview-popup" id="brandingPreview">
                         <div class="preview-header">
-                            <img src="../images/icon32.png" alt="Check Logo" class="preview-logo" id="previewLogo">
-                            <span class="preview-title" id="previewTitle">Check</span>
+                            <img src="../images/icon32.png" alt="__MSG_brandingPreviewLogoAlt__" class="preview-logo" id="previewLogo">
+                            <span class="preview-title" id="previewTitle">__MSG_brandingPreviewTitle__</span>
                         </div>
                         <div class="preview-content">
-                            <p>This is how your branding will appear in the extension popup.</p>
-                            <button class="preview-button" id="previewButton">Sample Button</button>
+                            <p>__MSG_brandingPreviewDescription__</p>
+                            <button class="preview-button" id="previewButton">__MSG_brandingPreviewButton__</button>
                         </div>
                     </div>
                 </div>
@@ -371,29 +372,29 @@
                     <div class="setting-group">
                         <div class="about-split-container">
                             <div class="about-left-panel">
-                                <h3>About Check</h3>
+                                <h3>__MSG_aboutCheckHeader__</h3>
                                 <div class="cyberdrain-info">
                                     <div class="company-logo">
-                                        <img src="../images/icon48.png" alt="Check Logo" class="company-logo-img">
+                                        <img src="../images/icon48.png" alt="__MSG_aboutCheckLogoAlt__" class="company-logo-img">
                                     </div>
                                     <div class="product-description">
-                                        <p><strong>Check</strong> is an advanced browser extension that provides real-time protection against Microsoft 365 phishing attacks. Designed for enterprises and managed service providers, Check uses sophisticated detection algorithms to identify and block malicious login pages before credentials can be compromised.</p>
-                                        <p>The extension integrates seamlessly with existing security workflows, offering centralized management, comprehensive logging, and CIPP integration for MSPs managing multiple Microsoft 365 tenants.</p>
+                                        <p>__MSG_aboutCheckDescription1__</p>
+                                        <p>__MSG_aboutCheckDescription2__</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="about-divider"></div>
 
                             <div class="about-right-panel">
-                                <h3>Created by CyberDrain</h3>
+                                <h3>__MSG_aboutCreatedByHeader__</h3>
                                 <div class="cyberdrain-info">
                                     <div class="company-logo">
-                                        <img src="../images/cyberdrain-light-square.svg" alt="CyberDrain" class="company-logo-img cyberdrain-shield-light">
-                                        <img src="../images/cyberdrain-dark-square.svg" alt="CyberDrain" class="company-logo-img cyberdrain-shield-dark">
+                                        <img src="../images/cyberdrain-light-square.svg" alt="__MSG_aboutCyberDrainLogoAlt__" class="company-logo-img cyberdrain-shield-light">
+                                        <img src="../images/cyberdrain-dark-square.svg" alt="__MSG_aboutCyberDrainLogoAlt__" class="company-logo-img cyberdrain-shield-dark">
                                     </div>
                                     <div class="company-description">
-                                        <p><strong>CyberDrain</strong> is a leading provider of Microsoft 365 automation and security solutions for Managed Service Providers (MSPs) and enterprises worldwide.</p>
-                                        <p>With a focus on innovation, CyberDrain delivers enterprise-grade tools that streamline Microsoft 365 management and enhance security posture through automation.</p>
+                                        <p>__MSG_aboutCyberDrainDescription1__</p>
+                                        <p>__MSG_aboutCyberDrainDescription2__</p>
                                     </div>
                                 </div>
                             </div>
@@ -402,52 +403,52 @@
                         <div class="about-section-spacer"></div>
 
                         <div class="links-grid">
-						            <a href="https://microsoftedge.microsoft.com/addons/detail/check-by-cyberdrain/knepjpocdagponkonnbggpcnhnaikajg" target="_blank" class="link-card">
-                                        <div class="link-icon">
-                                            <span class="material-icons">store</span>
-                                        </div>
-                                        <div class="link-content">
-                                            <h4>Edge Web Store</h4>
-                                            <p>Download and rate this extension</p>
-                                        </div>
-                                        <span class="material-icons link-arrow">open_in_new</span>
-                                    </a>
-									
-                                    <a href="https://chromewebstore.google.com/detail/check-by-cyberdrain/benimdeioplgkhanklclahllklceahbe" target="_blank" class="link-card">
-                                        <div class="link-icon">
-                                            <span class="material-icons">store</span>
-                                        </div>
-                                        <div class="link-content">
-                                            <h4>Chrome Web Store</h4>
-                                            <p>Download and rate this extension</p>
-                                        </div>
-                                        <span class="material-icons link-arrow">open_in_new</span>
-                                    </a>
-
-                                    <a href="https://github.com/CyberDrain/Check" target="_blank" class="link-card">
-                                        <div class="link-icon">
-                                            <span class="material-icons">code</span>
-                                        </div>
-                                        <div class="link-content">
-                                            <h4>GitHub Repository</h4>
-                                            <p>View source code</p>
-                                        </div>
-                                        <span class="material-icons link-arrow">open_in_new</span>
-                                    </a>
-
-                                    <a href="https://cyberdrain.com/" target="_blank" class="link-card">
-                                        <div class="link-icon">
-                                            <span class="material-icons">language</span>
-                                        </div>
-                                        <div class="link-content">
-                                            <h4>CyberDrain Website</h4>
-                                            <p>Learn more about our solutions</p>
-                                        </div>
-                                        <span class="material-icons link-arrow">open_in_new</span>
-                                    </a>
+                            <a href="https://microsoftedge.microsoft.com/addons/detail/check-by-cyberdrain/knepjpocdagponkonnbggpcnhnaikajg" target="_blank" class="link-card">
+                                <div class="link-icon">
+                                    <span class="material-icons">store</span>
                                 </div>
-                            </div>
+                                <div class="link-content">
+                                    <h4>__MSG_aboutEdgeWebStore__</h4>
+                                    <p>__MSG_aboutEdgeWebStoreDesc__</p>
+                                </div>
+                                <span class="material-icons link-arrow">open_in_new</span>
+                            </a>
+                            
+                            <a href="https://chromewebstore.google.com/detail/check-by-cyberdrain/benimdeioplgkhanklclahllklceahbe" target="_blank" class="link-card">
+                                <div class="link-icon">
+                                    <span class="material-icons">store</span>
+                                </div>
+                                <div class="link-content">
+                                    <h4>__MSG_aboutChromeWebStore__</h4>
+                                    <p>__MSG_aboutChromeWebStoreDesc__</p>
+                                </div>
+                                <span class="material-icons link-arrow">open_in_new</span>
+                            </a>
+
+                            <a href="https://github.com/CyberDrain/Check" target="_blank" class="link-card">
+                                <div class="link-icon">
+                                    <span class="material-icons">code</span>
+                                </div>
+                                <div class="link-content">
+                                    <h4>__MSG_aboutGitHubRepo__</h4>
+                                    <p>__MSG_aboutGitHubRepoDesc__</p>
+                                </div>
+                                <span class="material-icons link-arrow">open_in_new</span>
+                            </a>
+
+                            <a href="https://cyberdrain.com/" target="_blank" class="link-card">
+                                <div class="link-icon">
+                                    <span class="material-icons">language</span>
+                                </div>
+                                <div class="link-content">
+                                    <h4>__MSG_aboutCyberDrainWebsite__</h4>
+                                    <p>__MSG_aboutCyberDrainWebsiteDesc__</p>
+                                </div>
+                                <span class="material-icons link-arrow">open_in_new</span>
+                            </a>
                         </div>
+                    </div>
+                </div>
 
                         <div class="version-info-section">
                             <div class="version-info">
@@ -478,11 +479,11 @@
     <!-- Confirmation Modal -->
     <div class="modal-overlay" id="modalOverlay" style="display: none;">
         <div class="modal">
-            <h3 class="modal-title" id="modalTitle">Confirm Action</h3>
-            <p class="modal-message" id="modalMessage">Are you sure you want to proceed?</p>
+            <h3 class="modal-title" id="modalTitle">__MSG_modalConfirmTitle__</h3>
+            <p class="modal-message" id="modalMessage">__MSG_modalConfirmMessage__</p>
             <div class="modal-actions">
-                <button class="btn btn-secondary" id="modalCancel">Cancel</button>
-                <button class="btn btn-primary" id="modalConfirm">Confirm</button>
+                <button class="btn btn-secondary" id="modalCancel">__MSG_modalCancel__</button>
+                <button class="btn btn-primary" id="modalConfirm">__MSG_modalConfirm__</button>
             </div>
         </div>
     </div>

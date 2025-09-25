@@ -1,103 +1,428 @@
 {
-  "blockedTitle": {"message": "Toegang Geblokkeerd"},
-  "blockedSubtitle": {"message": "Deze website is geblokkeerd door het beveiligingsbeleid van uw organisatie"},
-  "blockedReasonTitle": {"message": "Reden voor blokkering:"},
-  "blockedReasonText": {"message": "Deze website lijkt te proberen uw inloggegevens te stelen, daarom is de toegang geblokkeerd."},
-  "goBackBtn": {"message": "Ga Terug"},
-  "contactAdminBtn": {"message": "Contacteer Beheerder"},
-  "blockDetailsTitle": {"message": "Blokkeer Details"},
-  "blockedUrlLabel": {"message": "URL:"},
-  "blockedCategoryLabel": {"message": "Categorie:"},
-  "blockedCategoryText": {"message": "Beveiligingsdreiging"},
-  "technicalDetailsTitle": {"message": "Technische Details"},
-  "detectionScoresTitle": {"message": "Detectiescores"},
-  "legitimacyScoreLabel": {"message": "Legitimiteitsscore:"},
-  "thresholdLabel": {"message": "Drempelwaarde:"},
-  "threatAnalysisTitle": {"message": "Dreigingsanalyse"},
-  "indicatorsFoundLabel": {"message": "Aantal Indicatoren:"},
-  "highestSeverityLabel": {"message": "Hoogste Ernst:"},
-  "detectionMethodLabel": {"message": "Detectiemethode:"},
-  "phishingIndicatorsDetectedTitle": {"message": "Gedetecteerde Phishing-indicatoren"},
-  "pageInformationTitle": {"message": "Pagina-informatie"},
-  "pageTitleLabel": {"message": "Paginatitel:"},
-  "userAgentLabel": {"message": "User Agent:"},
-  "timestampLabel": {"message": "Tijdstip:"},
-  "protectedBy": {"message": "Beschermd door"},
-  "supportContactText": {"message": "Neem voor ondersteuning contact op met uw IT-beheerder"},
-  "optionsTitle": {"message": "Check - Instellingen"},
-  "sidebarTitle": {"message": "Check"},
-  "menuGeneral": {"message": "Algemeen"},
-  "menuDetectionRules": {"message": "Detectieregels"},
-  "menuActivityLogs": {"message": "Activiteitenlog"},
-  "menuBranding": {"message": "Branding"},
-  "menuAbout": {"message": "Over"},
-  "pageTitleGeneral": {"message": "Algemene instellingen"},
-  "pageSubtitleGeneral": {"message": "Configureer basis phishingbescherming en detectieopties"},
-  "managedByPolicy": {"message": "Beheerd door beleid"},
-  "toggleDarkMode": {"message": "Schakel donkere modus in"},
-  "saveSettings": {"message": "Instellingen opslaan"},
-  "extensionSettings": {"message": "Extensie-instellingen"},
-  "blockAccessDescription": {"message": "Blokkeer toegang tot gedetecteerde phishingpagina's"},
-  "sendDetectionEventsDescription": {"message": "Stuur detectie-events naar CIPP-server voor monitoring"},
-  "cippServerUrlDescription": {"message": "URL van uw CIPP-server voor het rapporteren van Microsoft 365-aanmeldingsdetecties"},
-  "tenantIdDescription": {"message": "Tenant-ID om mee te sturen met CIPP-meldingen voor multi-tenant omgevingen"},
-  "userInterface": {"message": "Gebruikersinterface"},
-  "displayNotificationsDescription": {"message": "Toon beveiligingsmeldingen en waarschuwingen"},
-  "displayBadgeDescription": {"message": "Toon een verificatiebadge op legitieme Microsoft 365-inlogpagina's"},
-  "detectionConfiguration": {"message": "Detectieconfiguratie"},
-  "readOnlyDetectionRules": {"message": "Alleen-lezen weergave van de huidige detectieregels en configuratie"},
-  "rulePlaygroundDescription": {"message": "Probeer en test detectieregels lokaal. Deze wijzigingen worden NIET opgeslagen tenzij u het regelsbestand handmatig bijwerkt."},
-  "rulePlaygroundNote": {"message": "De playground gebruikt dezelfde regelmatchinglogica als het content script waar mogelijk. Sommige complexe regeltypes worden mogelijk niet volledig gesimuleerd."},
-  "logFilterLabel": {"message": "Filter op"},
-  "logTypeLabel": {"message": "Type"},
-  "logThreatLabel": {"message": "Dreiging"},
-  "filterLogEntries": {"message": "Filter logboekvermeldingen op type"},
-  "refreshLogs": {"message": "Vernieuwen"},
-  "clearLogs": {"message": "Log wissen"},
-  "exportLogs": {"message": "Log exporteren"},
-  "logTimestamp": {"message": "Tijdstip"},
-  "logEventType": {"message": "Gebeurtenistype"},
-  "logUrlDomain": {"message": "URL/Domein"},
-  "logThreatLevel": {"message": "Dreigingsniveau"},
-  "logActionTaken": {"message": "Actie ondernomen"},
-  "logDetails": {"message": "Details"},
-  "companyInformation": {"message": "Bedrijfsinformatie"},
-  "visualCustomization": {"message": "Visuele aanpassing"},
-  "brandingPreview": {"message": "Voorbeeld"},
-  "openSettingsTooltip": {"message": "Extensie-instellingen openen"},
-  "blockedSiteNotice": {"message": "Deze site is geblokkeerd:"},
-  "currentPage": {"message": "Huidige pagina"},
-  "loading": {"message": "Laden..."},
-  "analyzing": {"message": "Analyseren..."},
-  "threatsDetected": {"message": "Gedetecteerde dreigingen"},
-  "phishingProtectionStats": {"message": "Phishingbeschermingsstatistieken"},
-  "phishingBlocked": {"message": "Phishing geblokkeerd"},
-  "loginPagesVerified": {"message": "Inlogpagina's geverifieerd"},
-  "securityAlerts": {"message": "Beveiligingswaarschuwingen"},
-  "developerDebug": {"message": "Ontwikkelaar Debug"},
-  "toggleDebugInfo": {"message": "Debug-info wisselen"},
-  "rerunAnalysis": {"message": "Analyse opnieuw uitvoeren"},
-  "showDetails": {"message": "Details tonen"},
-  "m365Detection": {"message": "M365-detectie"},
-  "notAnalyzed": {"message": "Niet geanalyseerd"},
-  "phishingIndicators": {"message": "Phishing-indicatoren"},
-  "domObserverStatus": {"message": "DOM Observer-status"},
-  "unknown": {"message": "Onbekend"},
-  "pageSourceAnalysis": {"message": "Pagina-bronanalyse"},
-  "togglePageSourceInfo": {"message": "Broninfo wisselen"},
-  "searchInSource": {"message": "Zoek in bron..."},
-  "copy": {"message": "Kopiëren"},
-  "consoleLogs": {"message": "Console-logboeken"},
-  "toggleConsoleLogs": {"message": "Console-logboeken wisselen"},
-  "searchInLogs": {"message": "Zoek in logboeken..."},
-  "refresh": {"message": "Vernieuwen"},
-  "noLogsCaptured": {"message": "Geen logboeken vastgelegd"},
-  "enterprise": {"message": "Enterprise"},
-  "managedBy": {"message": "Beheerd door:"},
-  "organization": {"message": "Organisatie"},
-  "compliant": {"message": "Conform"},
-  "support": {"message": "Support"},
-  "privacy": {"message": "Privacy"},
-  "companyDefault": {"message": "CyberDrain"},
-  "analyzingPage": {"message": "Pagina wordt geanalyseerd..."}
+    "logsSectionHeader": {
+        "message": "Activiteitenlog"
+    },
+    "enableDebugLogging": {
+        "message": "Debug-logboek inschakelen"
+    },
+    "developerMode": {
+        "message": "Ontwikkelaarsmodus"
+    },
+    "simulateEnterprisePolicy": {
+        "message": "Enterprise-beleidsmodus simuleren (alleen voor ontwikkeling)"
+    },
+    "allEvents": {
+        "message": "Alle gebeurtenissen"
+    },
+    "securityEvents": {
+        "message": "Beveiligingsgebeurtenissen"
+    },
+    "urlAccess": {
+        "message": "URL-toegang"
+    },
+    "pageScans": {
+        "message": "Pagina-scans"
+    },
+    "debugEvents": {
+        "message": "Debug-gebeurtenissen"
+    },
+    "loading": {
+        "message": "Laden..."
+    },
+    "system": {
+        "message": "systeem"
+    },
+    "loadingActivityLogs": {
+        "message": "Activiteitenlogboek wordt geladen..."
+    },
+    "configOverview": {
+        "message": "Configuratieoverzicht"
+    },
+    "showRawJson": {
+        "message": "Toon ruwe JSON"
+    },
+    "rulePlaygroundHeader": {
+        "message": "Rule Playground (Beta)"
+    },
+    "loadCurrentRulesTooltip": {
+        "message": "Laad huidige gecachte regels in editor"
+    },
+    "loadCurrentRulesBtn": {
+        "message": "Laad Huidige"
+    },
+    "validateBtn": {
+        "message": "Valideren"
+    },
+    "sanitizeBtn": {
+        "message": "Opschonen"
+    },
+    "copyBtn": {
+        "message": "Kopiëren"
+    },
+    "testRulesBtn": {
+        "message": "Test Regels"
+    },
+    "clearBtn": {
+        "message": "Wissen"
+    },
+    "configUrlLabel": {
+        "message": "Configuratie URL"
+    },
+    "configUrlPlaceholder": {
+        "message": "https://raw.githubusercontent.com/CyberDrain/ProjectX/refs/heads/main/rules/detection-rules.json"
+    },
+    "configUrlDescription": {
+        "message": "URL om detectieconfiguratie op te halen (leeg laten voor standaard)"
+    },
+    "updateIntervalLabel": {
+        "message": "Update-interval (uren)"
+    },
+    "updateIntervalPlaceholder": {
+        "message": "24"
+    },
+    "updateIntervalDescription": {
+        "message": "Hoe vaak detectieregels worden bijgewerkt"
+    },
+    "urlAllowlistLabel": {
+        "message": "URL-toegestane lijst (Regex of URL met wildcards)"
+    },
+    "urlAllowlistPlaceholder": {
+        "message": "Voer URL's of regex-patronen in, één per regel:\n\nEenvoudige URL's met wildcards:\nhttps://google.com/*\nhttps://*.microsoft.com/*\n\nGeavanceerde regex-patronen:\n^https://trusted.example.com/.*"
+    },
+    "urlAllowlistDescription": {
+        "message": "Voeg URL's of regex-patronen toe aan de toegestane lijst vanuit detectie. Gebruik eenvoudige URL's met * wildcards (bijv. https://google.com/*) of geavanceerde regex-patronen. Deze worden toegevoegd aan de uitsluitingsregels zonder de volledige regels te vervangen."
+    },
+    "updateRulesNowBtn": {
+        "message": "Regels Nu Bijwerken"
+    },
+    "updateRulesNowDescription": {
+        "message": "Handmatig detectieregels bijwerken vanaf de externe bron"
+    },
+    "updateIntervalValidation": {
+        "message": "Update-interval moet tussen 1-168 uur zijn"
+    },
+    "customRulesUrlValidation": {
+        "message": "Aangepaste regels URL is niet geldig"
+    },
+    "invalidAllowlistPattern": {
+        "message": "Ongeldig patroon in URL-toegestane lijst: \"$1\" - $2"
+    },
+    "saveChangesUnsaved": {
+        "message": "Wijzigingen opslaan *"
+    },
+    "blockedByProduct": {
+        "message": "Toegang geblokkeerd door $1"
+    },
+    "blockReason": {
+        "message": "$1"
+    },
+    "threatCategory": {
+        "message": "$1"
+    },
+    "ruleCategory": {
+        "message": "Regel: $1"
+    },
+    "scoreCategory": {
+        "message": "Score: $1/$2"
+    },
+    "blockedTitle": {
+        "message": "Toegang Geblokkeerd"
+    },
+    "blockedSubtitle": {
+        "message": "Deze website is geblokkeerd door het beveiligingsbeleid van uw organisatie"
+    },
+    "blockedReasonTitle": {
+        "message": "Reden voor blokkering:"
+    },
+    "blockedReasonText": {
+        "message": "Deze website lijkt te proberen uw inloggegevens te stelen, daarom is de toegang geblokkeerd."
+    },
+    "goBackBtn": {
+        "message": "Ga Terug"
+    },
+    "contactAdminBtn": {
+        "message": "Contacteer Beheerder"
+    },
+    "blockDetailsTitle": {
+        "message": "Blokkeer Details"
+    },
+    "blockedUrlLabel": {
+        "message": "URL:"
+    },
+    "blockedCategoryLabel": {
+        "message": "Categorie:"
+    },
+    "blockedCategoryText": {
+        "message": "Beveiligingsdreiging"
+    },
+    "technicalDetailsTitle": {
+        "message": "Technische Details"
+    },
+    "detectionScoresTitle": {
+        "message": "Detectiescores"
+    },
+    "legitimacyScoreLabel": {
+        "message": "Legitimiteitsscore:"
+    },
+    "thresholdLabel": {
+        "message": "Drempelwaarde:"
+    },
+    "threatAnalysisTitle": {
+        "message": "Dreigingsanalyse"
+    },
+    "indicatorsFoundLabel": {
+        "message": "Aantal Indicatoren:"
+    },
+    "highestSeverityLabel": {
+        "message": "Hoogste Ernst:"
+    },
+    "detectionMethodLabel": {
+        "message": "Detectiemethode:"
+    },
+    "phishingIndicatorsDetectedTitle": {
+        "message": "Gedetecteerde Phishing-indicatoren"
+    },
+    "pageInformationTitle": {
+        "message": "Pagina-informatie"
+    },
+    "pageTitleLabel": {
+        "message": "Paginatitel:"
+    },
+    "userAgentLabel": {
+        "message": "User Agent:"
+    },
+    "timestampLabel": {
+        "message": "Tijdstip:"
+    },
+    "protectedBy": {
+        "message": "Beschermd door"
+    },
+    "supportContactText": {
+        "message": "Neem voor ondersteuning contact op met uw IT-beheerder"
+    },
+    "optionsTitle": {
+        "message": "Check - Instellingen"
+    },
+    "sidebarTitle": {
+        "message": "Check"
+    },
+    "menuGeneral": {
+        "message": "Algemeen"
+    },
+    "menuDetectionRules": {
+        "message": "Detectieregels"
+    },
+    "menuActivityLogs": {
+        "message": "Activiteitenlog"
+    },
+    "menuBranding": {
+        "message": "Branding"
+    },
+    "menuAbout": {
+        "message": "Over"
+    },
+    "pageTitleGeneral": {
+        "message": "Algemene instellingen"
+    },
+    "pageSubtitleGeneral": {
+        "message": "Configureer basis phishingbescherming en detectieopties"
+    },
+    "managedByPolicy": {
+        "message": "Beheerd door beleid"
+    },
+    "toggleDarkMode": {
+        "message": "Schakel donkere modus in"
+    },
+    "saveSettings": {
+        "message": "Instellingen opslaan"
+    },
+    "extensionSettings": {
+        "message": "Extensie-instellingen"
+    },
+    "blockAccessDescription": {
+        "message": "Blokkeer toegang tot gedetecteerde phishingpagina's"
+    },
+    "sendDetectionEventsDescription": {
+        "message": "Stuur detectie-events naar CIPP-server voor monitoring"
+    },
+    "cippServerUrlDescription": {
+        "message": "URL van uw CIPP-server voor het rapporteren van Microsoft 365-aanmeldingsdetecties"
+    },
+    "tenantIdDescription": {
+        "message": "Tenant-ID om mee te sturen met CIPP-meldingen voor multi-tenant omgevingen"
+    },
+    "userInterface": {
+        "message": "Gebruikersinterface"
+    },
+    "displayNotificationsDescription": {
+        "message": "Toon beveiligingsmeldingen en waarschuwingen"
+    },
+    "displayBadgeDescription": {
+        "message": "Toon een verificatiebadge op legitieme Microsoft 365-inlogpagina's"
+    },
+    "detectionConfiguration": {
+        "message": "Detectieconfiguratie"
+    },
+    "readOnlyDetectionRules": {
+        "message": "Alleen-lezen weergave van de huidige detectieregels en configuratie"
+    },
+    "rulePlaygroundDescription": {
+        "message": "Probeer en test detectieregels lokaal. Deze wijzigingen worden NIET opgeslagen tenzij u het regelsbestand handmatig bijwerkt."
+    },
+    "rulePlaygroundNote": {
+        "message": "De playground gebruikt dezelfde regelmatchinglogica als het content script waar mogelijk. Sommige complexe regeltypes worden mogelijk niet volledig gesimuleerd."
+    },
+    "logFilterLabel": {
+        "message": "Filter op"
+    },
+    "logTypeLabel": {
+        "message": "Type"
+    },
+    "logThreatLabel": {
+        "message": "Dreiging"
+    },
+    "filterLogEntries": {
+        "message": "Filter logboekvermeldingen op type"
+    },
+    "refreshLogs": {
+        "message": "Vernieuwen"
+    },
+    "clearLogs": {
+        "message": "Log wissen"
+    },
+    "exportLogs": {
+        "message": "Log exporteren"
+    },
+    "logTimestamp": {
+        "message": "Tijdstip"
+    },
+    "logEventType": {
+        "message": "Gebeurtenistype"
+    },
+    "logUrlDomain": {
+        "message": "URL/Domein"
+    },
+    "logThreatLevel": {
+        "message": "Dreigingsniveau"
+    },
+    "logActionTaken": {
+        "message": "Actie ondernomen"
+    },
+    "logDetails": {
+        "message": "Details"
+    },
+    "companyInformation": {
+        "message": "Bedrijfsinformatie"
+    },
+    "visualCustomization": {
+        "message": "Visuele aanpassing"
+    },
+    "brandingPreview": {
+        "message": "Voorbeeld"
+    },
+    "openSettingsTooltip": {
+        "message": "Extensie-instellingen openen"
+    },
+    "blockedSiteNotice": {
+        "message": "Deze site is geblokkeerd:"
+    },
+    "currentPage": {
+        "message": "Huidige pagina"
+    },
+    "analyzing": {
+        "message": "Analyseren..."
+    },
+    "threatsDetected": {
+        "message": "Gedetecteerde dreigingen"
+    },
+    "phishingProtectionStats": {
+        "message": "Phishingbeschermings statistieken"
+    },
+    "phishingBlocked": {
+        "message": "Phishing geblokkeerd"
+    },
+    "loginPagesVerified": {
+        "message": "Inlogpagina's geverifieerd"
+    },
+    "securityAlerts": {
+        "message": "Beveiligings waarschuwingen"
+    },
+    "developerDebug": {
+        "message": "Ontwikkelaar Debug"
+    },
+    "toggleDebugInfo": {
+        "message": "Debug-info wisselen"
+    },
+    "rerunAnalysis": {
+        "message": "Analyse opnieuw uitvoeren"
+    },
+    "showDetails": {
+        "message": "Details tonen"
+    },
+    "m365Detection": {
+        "message": "M365-detectie"
+    },
+    "notAnalyzed": {
+        "message": "Niet geanalyseerd"
+    },
+    "phishingIndicators": {
+        "message": "Phishing-indicatoren"
+    },
+    "domObserverStatus": {
+        "message": "DOM Observer-status"
+    },
+    "unknown": {
+        "message": "Onbekend"
+    },
+    "pageSourceAnalysis": {
+        "message": "Pagina-bronanalyse"
+    },
+    "togglePageSourceInfo": {
+        "message": "Broninfo wisselen"
+    },
+    "searchInSource": {
+        "message": "Zoek in bron..."
+    },
+    "copy": {
+        "message": "Kopiëren"
+    },
+    "consoleLogs": {
+        "message": "Console-logboeken"
+    },
+    "toggleConsoleLogs": {
+        "message": "Console-logboeken wisselen"
+    },
+    "searchInLogs": {
+        "message": "Zoek in logboeken..."
+    },
+    "refresh": {
+        "message": "Vernieuwen"
+    },
+    "noLogsCaptured": {
+        "message": "Geen logboeken vastgelegd"
+    },
+    "enterprise": {
+        "message": "Enterprise"
+    },
+    "managedBy": {
+        "message": "Beheerd door:"
+    },
+    "organization": {
+        "message": "Organisatie"
+    },
+    "compliant": {
+        "message": "Conform"
+    },
+    "support": {
+        "message": "Support"
+    },
+    "privacy": {
+        "message": "Privacy"
+    },
+    "companyDefault": {
+        "message": "CyberDrain"
+    },
+    "analyzingPage": {
+        "message": "Pagina wordt geanalyseerd..."
+    }
 }

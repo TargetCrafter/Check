@@ -777,26 +777,26 @@ class CheckPopup {
 
     // Handle different verdict types with improved status display
     if (isBlocked) {
-      this.showSecurityBadge("danger", "Blocked");
+      this.showSecurityBadge("danger", chrome.i18n.getMessage("blockedStatus"));
       this.showThreats(analysis.threats);
     } else if (isSuspicious) {
-      this.showSecurityBadge("warning", "Suspicious");
+      this.showSecurityBadge("warning", chrome.i18n.getMessage("suspiciousStatus"));
       this.showThreats(analysis.threats);
     } else if (
       analysis.verdict === "trusted" ||
       analysis.verdict === "trusted-extra"
     ) {
-      this.showSecurityBadge("safe", "Trusted Login Domain");
+      this.showSecurityBadge("safe", chrome.i18n.getMessage("trustedLoginStatus"));
       this.hideThreats();
     } else if (analysis.verdict === "ms-login-unknown") {
-      this.showSecurityBadge("warning", "MS Login - Unknown Domain");
+      this.showSecurityBadge("warning", chrome.i18n.getMessage("msLoginUnknownStatus"));
       this.hideThreats();
     } else if (analysis.verdict === "not-evaluated") {
-      this.showSecurityBadge("neutral", "Not Microsoft Login");
+      this.showSecurityBadge("neutral", chrome.i18n.getMessage("notMicrosoftLoginStatus"));
       this.hideThreats();
     } else {
       // For general Microsoft domains or other safe sites - show neutral, no badge
-      this.showSecurityBadge("neutral", "No Action Required");
+      this.showSecurityBadge("neutral", chrome.i18n.getMessage("noActionRequiredStatus"));
       this.hideThreats();
     }
 

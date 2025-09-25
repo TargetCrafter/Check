@@ -1166,13 +1166,13 @@ class CheckOptions {
     if (config.updateInterval < 1 || config.updateInterval > 168) {
       return {
         valid: false,
-        message: "Update interval must be between 1-168 hours",
+        message: chrome.i18n.getMessage("updateIntervalValidation") || "Update interval must be between 1-168 hours",
       };
     }
 
     // URL validation
     if (config.customRulesUrl && !this.isValidUrl(config.customRulesUrl)) {
-      return { valid: false, message: "Custom rules URL is not valid" };
+      return { valid: false, message: chrome.i18n.getMessage("customRulesUrlValidation") || "Custom rules URL is not valid" };
     }
 
     // URL Allowlist validation
@@ -1183,7 +1183,7 @@ class CheckOptions {
           if (!validationResult.valid) {
             return {
               valid: false,
-              message: `Invalid pattern in URL allowlist: "${pattern.trim()}" - ${validationResult.error}`
+              message: chrome.i18n.getMessage("invalidAllowlistPattern", [pattern.trim(), validationResult.error]) || `Invalid pattern in URL allowlist: "${pattern.trim()}" - ${validationResult.error}`
             };
           }
         }
@@ -3237,10 +3237,10 @@ class CheckOptions {
 
   updateSaveButton() {
     if (this.hasUnsavedChanges) {
-      this.elements.saveSettings.textContent = "Save Changes *";
+      this.elements.saveSettings.textContent = chrome.i18n.getMessage("saveChangesUnsaved") || "Save Changes *";
       this.elements.saveSettings.classList.add("unsaved");
     } else {
-      this.elements.saveSettings.textContent = "Save Settings";
+      this.elements.saveSettings.textContent = chrome.i18n.getMessage("saveSettings") || "Save Settings";
       this.elements.saveSettings.classList.remove("unsaved");
     }
   }

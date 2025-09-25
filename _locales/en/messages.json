@@ -1,103 +1,446 @@
 {
-  "blockedTitle": {"message": "Access Blocked"},
-  "blockedSubtitle": {"message": "This website has been blocked by your organization's security policy"},
-  "blockedReasonTitle": {"message": "Reason for blocking:"},
-  "blockedReasonText": {"message": "This website looks like it has tried to steal your login credentials, to prevent you from logging in we've blocked access."},
-  "goBackBtn": {"message": "Go Back"},
-  "contactAdminBtn": {"message": "Contact Admin"},
-  "blockDetailsTitle": {"message": "Block Details"},
-  "blockedUrlLabel": {"message": "URL:"},
-  "blockedCategoryLabel": {"message": "Category:"},
-  "blockedCategoryText": {"message": "Security Threat"},
-  "technicalDetailsTitle": {"message": "Technical Details"},
-  "detectionScoresTitle": {"message": "Detection Scores"},
-  "legitimacyScoreLabel": {"message": "Legitimacy Score:"},
-  "thresholdLabel": {"message": "Threshold:"},
-  "threatAnalysisTitle": {"message": "Threat Analysis"},
-  "indicatorsFoundLabel": {"message": "Indicators Found:"},
-  "highestSeverityLabel": {"message": "Highest Severity:"},
-  "detectionMethodLabel": {"message": "Detection Method:"},
-  "phishingIndicatorsDetectedTitle": {"message": "Phishing Indicators Detected"},
-  "pageInformationTitle": {"message": "Page Information"},
-  "pageTitleLabel": {"message": "Page Title:"},
-  "userAgentLabel": {"message": "User Agent:"},
-  "timestampLabel": {"message": "Timestamp:"},
-  "protectedBy": {"message": "Protected by"},
-  "supportContactText": {"message": "For support, contact your IT administrator"},
-  "optionsTitle": {"message": "Check - Settings"},
-  "sidebarTitle": {"message": "Check"},
-  "menuGeneral": {"message": "General"},
-  "menuDetectionRules": {"message": "Detection Rules"},
-  "menuActivityLogs": {"message": "Activity Logs"},
-  "menuBranding": {"message": "Branding"},
-  "menuAbout": {"message": "About"},
-  "pageTitleGeneral": {"message": "General Settings"},
-  "pageSubtitleGeneral": {"message": "Configure basic phishing protection behavior and detection features"},
-  "managedByPolicy": {"message": "Managed by Policy"},
-  "toggleDarkMode": {"message": "Toggle Dark Mode"},
-  "saveSettings": {"message": "Save Settings"},
-  "extensionSettings": {"message": "Extension Settings"},
-  "blockAccessDescription": {"message": "Block access to detected phishing pages"},
-  "sendDetectionEventsDescription": {"message": "Send detection events to CIPP server for monitoring"},
-  "cippServerUrlDescription": {"message": "URL of your CIPP server for reporting Microsoft 365 logon detections"},
-  "tenantIdDescription": {"message": "Tenant identifier to include with CIPP alerts for multi-tenant environments"},
-  "userInterface": {"message": "User Interface"},
-  "displayNotificationsDescription": {"message": "Display security notifications and warnings"},
-  "displayBadgeDescription": {"message": "Display a verification badge on legitimate Microsoft 365 login pages"},
-  "detectionConfiguration": {"message": "Detection Configuration"},
-  "readOnlyDetectionRules": {"message": "Read-only view of the current detection rules and configuration"},
-  "rulePlaygroundDescription": {"message": "Prototype and test detection rules locally. These changes are NOT saved to the extension unless you manually update the rules file."},
-  "rulePlaygroundNote": {"message": "The playground reuses the same rule matching logic as the content script where possible. Some complex rule types may not be fully simulated."},
-  "logFilterLabel": {"message": "Filter by"},
-  "logTypeLabel": {"message": "Type"},
-  "logThreatLabel": {"message": "Threat"},
-  "filterLogEntries": {"message": "Filter activity log entries by type"},
-  "refreshLogs": {"message": "Refresh"},
-  "clearLogs": {"message": "Clear Logs"},
-  "exportLogs": {"message": "Export Logs"},
-  "logTimestamp": {"message": "Timestamp"},
-  "logEventType": {"message": "Event Type"},
-  "logUrlDomain": {"message": "URL/Domain"},
-  "logThreatLevel": {"message": "Threat Level"},
-  "logActionTaken": {"message": "Action Taken"},
-  "logDetails": {"message": "Details"},
-  "companyInformation": {"message": "Company Information"},
-  "visualCustomization": {"message": "Visual Customization"},
-  "brandingPreview": {"message": "Preview"},
-  "openSettingsTooltip": {"message": "Open Extension Settings"},
-  "blockedSiteNotice": {"message": "This site was blocked:"},
-  "currentPage": {"message": "Current Page"},
-  "loading": {"message": "Loading..."},
-  "analyzing": {"message": "Analyzing..."},
-  "threatsDetected": {"message": "Threats Detected"},
-  "phishingProtectionStats": {"message": "Phishing Protection Statistics"},
-  "phishingBlocked": {"message": "Phishing Blocked"},
-  "loginPagesVerified": {"message": "Login Pages Verified"},
-  "securityAlerts": {"message": "Security Alerts"},
-  "developerDebug": {"message": "Developer Debug"},
-  "toggleDebugInfo": {"message": "Toggle debug info"},
-  "rerunAnalysis": {"message": "Re-run Analysis"},
-  "showDetails": {"message": "Show Details"},
-  "m365Detection": {"message": "M365 Detection"},
-  "notAnalyzed": {"message": "Not analyzed"},
-  "phishingIndicators": {"message": "Phishing Indicators"},
-  "domObserverStatus": {"message": "DOM Observer Status"},
-  "unknown": {"message": "Unknown"},
-  "pageSourceAnalysis": {"message": "Page Source Analysis"},
-  "togglePageSourceInfo": {"message": "Toggle page source info"},
-  "searchInSource": {"message": "Search in source..."},
-  "copy": {"message": "Copy"},
-  "consoleLogs": {"message": "Console Logs"},
-  "toggleConsoleLogs": {"message": "Toggle console logs"},
-  "searchInLogs": {"message": "Search in logs..."},
-  "refresh": {"message": "Refresh"},
-  "noLogsCaptured": {"message": "No logs captured"},
-  "enterprise": {"message": "Enterprise"},
-  "managedBy": {"message": "Managed by:"},
-  "organization": {"message": "Organization"},
-  "compliant": {"message": "Compliant"},
-  "support": {"message": "Support"},
-  "privacy": {"message": "Privacy"},
-  "companyDefault": {"message": "CyberDrain"},
-  "analyzingPage": {"message": "Analyzing page..."}
+    "logsSectionHeader": {
+        "message": "Activity Logs"
+    },
+    "enableDebugLogging": {
+        "message": "Enable Debug Logging"
+    },
+    "developerMode": {
+        "message": "Developer Mode"
+    },
+    "simulateEnterprisePolicy": {
+        "message": "Simulate Enterprise Policy Mode (Dev Only)"
+    },
+    "allEvents": {
+        "message": "All Events"
+    },
+    "securityEvents": {
+        "message": "Security Events"
+    },
+    "urlAccess": {
+        "message": "URL Access"
+    },
+    "pageScans": {
+        "message": "Page Scans"
+    },
+    "debugEvents": {
+        "message": "Debug Events"
+    },
+    "loading": {
+        "message": "Loading..."
+    },
+    "system": {
+        "message": "system"
+    },
+    "loadingActivityLogs": {
+        "message": "Loading activity logs..."
+    },
+    "configOverview": {
+        "message": "Configuration Overview"
+    },
+    "showRawJson": {
+        "message": "Show Raw JSON"
+    },
+    "rulePlaygroundHeader": {
+        "message": "Rule Playground (Beta)"
+    },
+    "loadCurrentRulesTooltip": {
+        "message": "Load current cached rules into editor"
+    },
+    "loadCurrentRulesBtn": {
+        "message": "Load Current"
+    },
+    "validateBtn": {
+        "message": "Validate"
+    },
+    "sanitizeBtn": {
+        "message": "Sanitize"
+    },
+    "copyBtn": {
+        "message": "Copy"
+    },
+    "testRulesBtn": {
+        "message": "Test Rules"
+    },
+    "clearBtn": {
+        "message": "Clear"
+    },
+    "configUrlLabel": {
+        "message": "Config URL"
+    },
+    "configUrlPlaceholder": {
+        "message": "https://raw.githubusercontent.com/CyberDrain/ProjectX/refs/heads/main/rules/detection-rules.json"
+    },
+    "configUrlDescription": {
+        "message": "URL to fetch detection configuration from (leave empty for default)"
+    },
+    "updateIntervalLabel": {
+        "message": "Update Interval (hours)"
+    },
+    "updateIntervalPlaceholder": {
+        "message": "24"
+    },
+    "updateIntervalDescription": {
+        "message": "How often to update detection rules"
+    },
+    "urlAllowlistLabel": {
+        "message": "URL Allowlist (Regex or URL with wildcards)"
+    },
+    "urlAllowlistPlaceholder": {
+        "message": "Enter URLs or regex patterns, one per line:\n\nSimple URLs with wildcards:\nhttps://google.com/*\nhttps://*.microsoft.com/*\n\nAdvanced regex patterns:\n^https://trusted.example.com/.*"
+    },
+    "urlAllowlistDescription": {
+        "message": "Add URLs or regex patterns to allowlist from detection. Use simple URLs with * wildcards (e.g., https://google.com/*) or advanced regex patterns. These will be added to the exclusion rules without replacing the entire ruleset."
+    },
+    "updateRulesNowBtn": {
+        "message": "Update Rules Now"
+    },
+    "updateRulesNowDescription": {
+        "message": "Manually update detection rules from the remote source"
+    },
+    "blockedStatus": {
+        "message": "Blocked"
+    },
+    "suspiciousStatus": {
+        "message": "Suspicious"
+    },
+    "trustedLoginStatus": {
+        "message": "Trusted Login Domain"
+    },
+    "msLoginUnknownStatus": {
+        "message": "MS Login - Unknown Domain"
+    },
+    "notMicrosoftLoginStatus": {
+        "message": "Not Microsoft Login"
+    },
+    "noActionRequiredStatus": {
+        "message": "No Action Required"
+    },
+    "updateIntervalValidation": {
+        "message": "Update interval must be between 1-168 hours"
+    },
+    "customRulesUrlValidation": {
+        "message": "Custom rules URL is not valid"
+    },
+    "invalidAllowlistPattern": {
+        "message": "Invalid pattern in URL allowlist: \"$1\" - $2"
+    },
+    "saveChangesUnsaved": {
+        "message": "Save Changes *"
+    },
+    "blockedByProduct": {
+        "message": "Access Blocked by $1"
+    },
+    "blockReason": {
+        "message": "$1"
+    },
+    "threatCategory": {
+        "message": "$1"
+    },
+    "ruleCategory": {
+        "message": "Rule: $1"
+    },
+    "scoreCategory": {
+        "message": "Score: $1/$2"
+    },
+    "blockedTitle": {
+        "message": "Access Blocked"
+    },
+    "blockedSubtitle": {
+        "message": "This website has been blocked by your organization's security policy"
+    },
+    "blockedReasonTitle": {
+        "message": "Reason for blocking:"
+    },
+    "blockedReasonText": {
+        "message": "This website looks like it has tried to steal your login credentials, to prevent you from logging in we've blocked access."
+    },
+    "goBackBtn": {
+        "message": "Go Back"
+    },
+    "contactAdminBtn": {
+        "message": "Contact Admin"
+    },
+    "blockDetailsTitle": {
+        "message": "Block Details"
+    },
+    "blockedUrlLabel": {
+        "message": "URL:"
+    },
+    "blockedCategoryLabel": {
+        "message": "Category:"
+    },
+    "blockedCategoryText": {
+        "message": "Security Threat"
+    },
+    "technicalDetailsTitle": {
+        "message": "Technical Details"
+    },
+    "detectionScoresTitle": {
+        "message": "Detection Scores"
+    },
+    "legitimacyScoreLabel": {
+        "message": "Legitimacy Score:"
+    },
+    "thresholdLabel": {
+        "message": "Threshold:"
+    },
+    "threatAnalysisTitle": {
+        "message": "Threat Analysis"
+    },
+    "indicatorsFoundLabel": {
+        "message": "Indicators Found:"
+    },
+    "highestSeverityLabel": {
+        "message": "Highest Severity:"
+    },
+    "detectionMethodLabel": {
+        "message": "Detection Method:"
+    },
+    "phishingIndicatorsDetectedTitle": {
+        "message": "Phishing Indicators Detected"
+    },
+    "pageInformationTitle": {
+        "message": "Page Information"
+    },
+    "pageTitleLabel": {
+        "message": "Page Title:"
+    },
+    "userAgentLabel": {
+        "message": "User Agent:"
+    },
+    "timestampLabel": {
+        "message": "Timestamp:"
+    },
+    "protectedBy": {
+        "message": "Protected by"
+    },
+    "supportContactText": {
+        "message": "For support, contact your IT administrator"
+    },
+    "optionsTitle": {
+        "message": "Check - Settings"
+    },
+    "sidebarTitle": {
+        "message": "Check"
+    },
+    "menuGeneral": {
+        "message": "General"
+    },
+    "menuDetectionRules": {
+        "message": "Detection Rules"
+    },
+    "menuActivityLogs": {
+        "message": "Activity Logs"
+    },
+    "menuBranding": {
+        "message": "Branding"
+    },
+    "menuAbout": {
+        "message": "About"
+    },
+    "pageTitleGeneral": {
+        "message": "General Settings"
+    },
+    "pageSubtitleGeneral": {
+        "message": "Configure basic phishing protection behavior and detection features"
+    },
+    "managedByPolicy": {
+        "message": "Managed by Policy"
+    },
+    "toggleDarkMode": {
+        "message": "Toggle Dark Mode"
+    },
+    "saveSettings": {
+        "message": "Save Settings"
+    },
+    "extensionSettings": {
+        "message": "Extension Settings"
+    },
+    "blockAccessDescription": {
+        "message": "Block access to detected phishing pages"
+    },
+    "sendDetectionEventsDescription": {
+        "message": "Send detection events to CIPP server for monitoring"
+    },
+    "cippServerUrlDescription": {
+        "message": "URL of your CIPP server for reporting Microsoft 365 logon detections"
+    },
+    "tenantIdDescription": {
+        "message": "Tenant identifier to include with CIPP alerts for multi-tenant environments"
+    },
+    "userInterface": {
+        "message": "User Interface"
+    },
+    "displayNotificationsDescription": {
+        "message": "Display security notifications and warnings"
+    },
+    "displayBadgeDescription": {
+        "message": "Display a verification badge on legitimate Microsoft 365 login pages"
+    },
+    "detectionConfiguration": {
+        "message": "Detection Configuration"
+    },
+    "readOnlyDetectionRules": {
+        "message": "Read-only view of the current detection rules and configuration"
+    },
+    "rulePlaygroundDescription": {
+        "message": "Prototype and test detection rules locally. These changes are NOT saved to the extension unless you manually update the rules file."
+    },
+    "rulePlaygroundNote": {
+        "message": "The playground reuses the same rule matching logic as the content script where possible. Some complex rule types may not be fully simulated."
+    },
+    "logFilterLabel": {
+        "message": "Filter by"
+    },
+    "logTypeLabel": {
+        "message": "Type"
+    },
+    "logThreatLabel": {
+        "message": "Threat"
+    },
+    "filterLogEntries": {
+        "message": "Filter activity log entries by type"
+    },
+    "refreshLogs": {
+        "message": "Refresh"
+    },
+    "clearLogs": {
+        "message": "Clear Logs"
+    },
+    "exportLogs": {
+        "message": "Export Logs"
+    },
+    "logTimestamp": {
+        "message": "Timestamp"
+    },
+    "logEventType": {
+        "message": "Event Type"
+    },
+    "logUrlDomain": {
+        "message": "URL/Domain"
+    },
+    "logThreatLevel": {
+        "message": "Threat Level"
+    },
+    "logActionTaken": {
+        "message": "Action Taken"
+    },
+    "logDetails": {
+        "message": "Details"
+    },
+    "companyInformation": {
+        "message": "Company Information"
+    },
+    "visualCustomization": {
+        "message": "Visual Customization"
+    },
+    "brandingPreview": {
+        "message": "Preview"
+    },
+    "openSettingsTooltip": {
+        "message": "Open Extension Settings"
+    },
+    "blockedSiteNotice": {
+        "message": "This site was blocked:"
+    },
+    "currentPage": {
+        "message": "Current Page"
+    },
+    "analyzing": {
+        "message": "Analyzing..."
+    },
+    "threatsDetected": {
+        "message": "Threats Detected"
+    },
+    "phishingProtectionStats": {
+        "message": "Phishing Protection Statistics"
+    },
+    "phishingBlocked": {
+        "message": "Phishing Blocked"
+    },
+    "loginPagesVerified": {
+        "message": "Login Pages Verified"
+    },
+    "securityAlerts": {
+        "message": "Security Alerts"
+    },
+    "developerDebug": {
+        "message": "Developer Debug"
+    },
+    "toggleDebugInfo": {
+        "message": "Toggle debug info"
+    },
+    "rerunAnalysis": {
+        "message": "Re-run Analysis"
+    },
+    "showDetails": {
+        "message": "Show Details"
+    },
+    "m365Detection": {
+        "message": "M365 Detection"
+    },
+    "notAnalyzed": {
+        "message": "Not analyzed"
+    },
+    "phishingIndicators": {
+        "message": "Phishing Indicators"
+    },
+    "domObserverStatus": {
+        "message": "DOM Observer Status"
+    },
+    "unknown": {
+        "message": "Unknown"
+    },
+    "pageSourceAnalysis": {
+        "message": "Page Source Analysis"
+    },
+    "togglePageSourceInfo": {
+        "message": "Toggle page source info"
+    },
+    "searchInSource": {
+        "message": "Search in source..."
+    },
+    "copy": {
+        "message": "Copy"
+    },
+    "consoleLogs": {
+        "message": "Console Logs"
+    },
+    "toggleConsoleLogs": {
+        "message": "Toggle console logs"
+    },
+    "searchInLogs": {
+        "message": "Search in logs..."
+    },
+    "refresh": {
+        "message": "Refresh"
+    },
+    "noLogsCaptured": {
+        "message": "No logs captured"
+    },
+    "enterprise": {
+        "message": "Enterprise"
+    },
+    "managedBy": {
+        "message": "Managed by:"
+    },
+    "organization": {
+        "message": "Organization"
+    },
+    "compliant": {
+        "message": "Compliant"
+    },
+    "support": {
+        "message": "Support"
+    },
+    "privacy": {
+        "message": "Privacy"
+    },
+    "companyDefault": {
+        "message": "CyberDrain"
+    },
+    "analyzingPage": {
+        "message": "Analyzing page..."
+    }
 }

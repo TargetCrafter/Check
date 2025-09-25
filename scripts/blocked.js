@@ -42,21 +42,16 @@ function parseUrlParams() {
       // Update block reason
       if (details.reason) {
         console.log("Setting block reason to:", details.reason);
-        document.getElementById("blockReason").textContent = details.reason;
+        document.getElementById("blockReason").textContent = chrome.i18n.getMessage("blockReason", [details.reason]) || details.reason;
       }
 
       // Update threat category based on rule description or score
       if (details.ruleDescription) {
-        document.getElementById("threatCategory").textContent =
-          details.ruleDescription;
+        document.getElementById("threatCategory").textContent = chrome.i18n.getMessage("threatCategory", [details.ruleDescription]) || details.ruleDescription;
       } else if (details.rule) {
-        document.getElementById(
-          "threatCategory"
-        ).textContent = `Rule: ${details.rule}`;
+        document.getElementById("threatCategory").textContent = chrome.i18n.getMessage("ruleCategory", [details.rule]) || `Rule: ${details.rule}`;
       } else if (details.score !== undefined) {
-        document.getElementById(
-          "threatCategory"
-        ).textContent = `Score: ${details.score}/${details.threshold}`;
+        document.getElementById("threatCategory").textContent = chrome.i18n.getMessage("scoreCategory", [details.score, details.threshold]) || `Score: ${details.score}/${details.threshold}`;
       }
 
       // Populate technical details section
@@ -431,7 +426,7 @@ async function loadBranding() {
         console.log("Setting product name:", storageResult.productName);
         document.querySelector(
           "h1"
-        ).textContent = `Access Blocked by ${storageResult.productName}`;
+        ).textContent = chrome.i18n.getMessage("blockedByProduct", [storageResult.productName]) || `Access Blocked by ${storageResult.productName}`;
       }
 
       // Handle logo display - use custom logo or default branding
