@@ -1,4 +1,55 @@
 {
+    "fallbackWarningTitle": {
+        "message": "⚠️ Security Warning"
+    },
+    "fallbackWarningBody": {
+        "message": "Microsoft login elements detected on non-Microsoft domain. Protection system unavailable."
+    },
+    "fallbackBlockedTitle": {
+        "message": "Site Blocked - Microsoft 365 Protection"
+    },
+    "fallbackBlockedHeader": {
+        "message": "Phishing Site Blocked"
+    },
+    "fallbackBlockedStrong": {
+        "message": "Microsoft 365 login page detected on suspicious domain."
+    },
+    "fallbackBlockedBody": {
+        "message": "This site may be attempting to steal your credentials and has been blocked for your protection."
+    },
+    "fallbackBlockedReasonLabel": {
+        "message": "Reason"
+    },
+    "fallbackBlockedBy": {
+        "message": "Blocked by: Check"
+    },
+    "fallbackBlockedNoOverride": {
+        "message": "No override available - contact your administrator if this is incorrect"
+    },
+    "bannerSuspiciousTitle": {
+        "message": "Suspicious Microsoft 365 Login Page"
+    },
+    "bannerScanningTitle": {
+        "message": "Security Scan in Progress"
+    },
+    "bannerCriticalTitle": {
+        "message": "Critical Security Warning"
+    },
+    "bannerHighTitle": {
+        "message": "High Risk Security Warning"
+    },
+    "bannerRogueTitle": {
+        "message": "CRITICAL SECURITY THREAT"
+    },
+    "validMicrosoftDomainTitle": {
+        "message": "Verified Microsoft Domain"
+    },
+    "validMicrosoftDomainSubtitle": {
+        "message": "This is an authentic Microsoft login page"
+    },
+    "dismiss": {
+        "message": "Dismiss"
+    },
     "logsSectionHeader": {
         "message": "Activity Logs"
     },

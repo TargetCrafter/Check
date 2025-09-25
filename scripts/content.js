@@ -171,20 +171,24 @@ if (window.checkExtensionLoaded) {
   const logger = {
     log: (...args) => {
       if (developerConsoleLoggingEnabled) {
-        console.log("[M365-Protection]", ...args);
+        const localized = (chrome.i18n && chrome.i18n.getMessage && typeof args[0] === 'string') ? chrome.i18n.getMessage(args[0]) || args[0] : args[0];
+        console.log("[M365-Protection]", localized, ...args.slice(1));
       }
     },
     warn: (...args) => {
       // Always show warnings regardless of developer setting
-      console.warn("[M365-Protection]", ...args);
+      const localized = (chrome.i18n && chrome.i18n.getMessage && typeof args[0] === 'string') ? chrome.i18n.getMessage(args[0]) || args[0] : args[0];
+      console.warn("[M365-Protection]", localized, ...args.slice(1));
     },
     error: (...args) => {
       // Always show errors regardless of developer setting
-      console.error("[M365-Protection]", ...args);
+      const localized = (chrome.i18n && chrome.i18n.getMessage && typeof args[0] === 'string') ? chrome.i18n.getMessage(args[0]) || args[0] : args[0];
+      console.error("[M365-Protection]", localized, ...args.slice(1));
     },
     debug: (...args) => {
       if (developerConsoleLoggingEnabled) {
-        console.debug("[M365-Protection]", ...args);
+        const localized = (chrome.i18n && chrome.i18n.getMessage && typeof args[0] === 'string') ? chrome.i18n.getMessage(args[0]) || args[0] : args[0];
+        console.debug("[M365-Protection]", localized, ...args.slice(1));
       }
     },
   };
@@ -3990,11 +3994,20 @@ if (window.checkExtensionLoaded) {
 
       // Fallback: Replace page content entirely if redirect fails
       try {
+        // Localized fallback strings
+        const fallbackTitle = (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("fallbackBlockedTitle") || "Site Blocked - Microsoft 365 Protection" : "Site Blocked - Microsoft 365 Protection";
+        const fallbackHeader = (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("fallbackBlockedHeader") || "Phishing Site Blocked" : "Phishing Site Blocked";
+        const fallbackStrong = (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("fallbackBlockedStrong") || "Microsoft 365 login page detected on suspicious domain." : "Microsoft 365 login page detected on suspicious domain.";
+        const fallbackBody = (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("fallbackBlockedBody") || "This site may be attempting to steal your credentials and has been blocked for your protection." : "This site may be attempting to steal your credentials and has been blocked for your protection.";
+        const fallbackReason = (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("fallbackBlockedReasonLabel") || "Reason" : "Reason";
+        const fallbackBlockedBy = (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("fallbackBlockedBy") || "Blocked by: Check" : "Blocked by: Check";
+        const fallbackNoOverride = (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("fallbackBlockedNoOverride") || "No override available - contact your administrator if this is incorrect" : "No override available - contact your administrator if this is incorrect";
+
         document.documentElement.innerHTML = `
         <!DOCTYPE html>
         <html>
         <head>
-          <title>Site Blocked - Microsoft 365 Protection</title>
+          <title>${fallbackTitle}</title>
           <style>
             body {
               font-family: system-ui, -apple-system, sans-serif;
@@ -4020,12 +4033,12 @@ if (window.checkExtensionLoaded) {
         <body>
           <div class="container">
             <div class="icon">🛡️</div>
-            <h1>Phishing Site Blocked</h1>
-            <p><strong>Microsoft 365 login page detected on suspicious domain.</strong></p>
-            <p>This site may be attempting to steal your credentials and has been blocked for your protection.</p>
-            <div class="reason">Reason: ${reason}</div>
-            <div class="reason">Blocked by: Check</div>
-            <div class="reason">No override available - contact your administrator if this is incorrect</div>
+            <h1>${fallbackHeader}</h1>
+            <p><strong>${fallbackStrong}</strong></p>
+            <p>${fallbackBody}</p>
+            <div class="reason">${fallbackReason}: ${reason}</div>
+            <div class="reason">${fallbackBlockedBy}</div>
+            <div class="reason">${fallbackNoOverride}</div>
           </div>
         </body>
         </html>
@@ -4209,14 +4222,24 @@ if (window.checkExtensionLoaded) {
         ? ` (Score: ${analysisData.score}/${analysisData.threshold})`
         : "";
 
+      // Localized banner titles and button
+      const bannerTitles = {
+        suspicious: (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("bannerSuspiciousTitle") || "Suspicious Microsoft 365 Login Page" : "Suspicious Microsoft 365 Login Page",
+        scanning: (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("bannerScanningTitle") || "Security Scan in Progress" : "Security Scan in Progress",
+        critical: (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("bannerCriticalTitle") || "Critical Security Warning" : "Critical Security Warning",
+        high: (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("bannerHighTitle") || "High Risk Security Warning" : "High Risk Security Warning",
+        rogue: (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("bannerRogueTitle") || "CRITICAL SECURITY THREAT" : "CRITICAL SECURITY THREAT"
+      };
+      const bannerDismiss = (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("dismiss") || "Dismiss" : "Dismiss";
+
       // Determine banner type and styling based on analysis data
-      let bannerTitle = "Suspicious Microsoft 365 Login Page";
+      let bannerTitle = bannerTitles.suspicious;
       let bannerIcon = "⚠️";
       let bannerColor = "linear-gradient(135deg, #ff9800, #f57c00)"; // Orange for warnings
 
       // Check for scanning state
       if (analysisData?.severity === "scanning") {
-        bannerTitle = "Security Scan in Progress";
+        bannerTitle = bannerTitles.scanning;
         bannerIcon = "🔍";
         bannerColor = "linear-gradient(135deg, #2196f3, #1976d2)"; // Blue for scanning
       }
@@ -4226,15 +4249,15 @@ if (window.checkExtensionLoaded) {
         reason.toLowerCase().includes("rogue oauth") ||
         reason.toLowerCase().includes("rogue app")
       ) {
-        bannerTitle = "🚨 CRITICAL SECURITY THREAT";
+        bannerTitle = '🚨 ' + bannerTitles.rogue;
         bannerIcon = "🛡️";
         bannerColor = "linear-gradient(135deg, #f44336, #d32f2f)"; // Red for critical threats
       } else if (analysisData?.severity === "critical") {
-        bannerTitle = "Critical Security Warning";
+        bannerTitle = bannerTitles.critical;
         bannerIcon = "🚨";
         bannerColor = "linear-gradient(135deg, #f44336, #d32f2f)"; // Red for critical
       } else if (analysisData?.severity === "high") {
-        bannerTitle = "High Risk Security Warning";
+        bannerTitle = bannerTitles.high;
         bannerIcon = "⚠️";
         bannerColor = "linear-gradient(135deg, #ff5722, #d84315)"; // Orange-red for high risk
       }
@@ -4248,7 +4271,7 @@ if (window.checkExtensionLoaded) {
           <strong style="display:block;">${bannerTitle}</strong>
           <small style="opacity:0.95;display:block;margin-top:2px;">${reason}${detailsText}</small>
         </div>
-        <button onclick="this.closest('#ms365-warning-banner').remove(); document.body.style.marginTop = '0'; window.showingBanner = false;" title="Dismiss" style="
+        <button onclick="this.closest('#ms365-warning-banner').remove(); document.body.style.marginTop = '0'; window.showingBanner = false;" title="${bannerDismiss}" style="
           margin-left:auto;position:relative;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);
           color:#fff;padding:0;border-radius:4px;cursor:pointer;
           width:24px;height:24px;min-width:24px;min-height:24px;display:flex;align-items:center;justify-content:center;
@@ -4317,6 +4340,11 @@ if (window.checkExtensionLoaded) {
         return;
       }
 
+      // Localized strings
+      const badgeTitle = (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("validMicrosoftDomainTitle") || "Verified Microsoft Domain" : "Verified Microsoft Domain";
+      const badgeSubtitle = (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("validMicrosoftDomainSubtitle") || "This is an authentic Microsoft login page" : "This is an authentic Microsoft login page";
+      const badgeDismiss = (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("dismiss") || "Dismiss" : "Dismiss";
+
       // Check if mobile using media query (more conservative breakpoint)
       const isMobile = window.matchMedia("(max-width: 480px)").matches;
 
@@ -4350,10 +4378,10 @@ if (window.checkExtensionLoaded) {
         <div style="display: flex; align-items: center; justify-content: center; gap: 16px; position: relative; padding-right: 48px;">
           <span style="font-size: 24px;">✅</span>
           <div>
-            <strong>Verified Microsoft Domain</strong><br>
-            <small>This is an authentic Microsoft login page</small>
+            <strong>${badgeTitle}</strong><br>
+            <small>${badgeSubtitle}</small>
           </div>
-          <button onclick="this.parentElement.parentElement.remove(); document.body.style.marginTop = '0';" title="Dismiss" style="
+          <button onclick="this.parentElement.parentElement.remove(); document.body.style.marginTop = '0';" title="${badgeDismiss}" style="
             position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
             background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);
             color: white; padding: 0; border-radius: 4px; cursor: pointer;
@@ -4389,7 +4417,7 @@ if (window.checkExtensionLoaded) {
         badge.innerHTML = `
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 16px;">✅</span>
-          <span>Verified Microsoft Domain</span>
+          <span>${badgeTitle}</span>
         </div>
       `;
 
@@ -4424,10 +4452,13 @@ if (window.checkExtensionLoaded) {
       text-align: center !important;
     `;
 
+      // Localized fallback warning strings
+      const fallbackWarningTitle = (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("fallbackWarningTitle") || "⚠️ Security Warning" : "⚠️ Security Warning";
+      const fallbackWarningBody = (chrome.i18n && chrome.i18n.getMessage) ? chrome.i18n.getMessage("fallbackWarningBody") || "Microsoft login elements detected on non-Microsoft domain. Protection system unavailable." : "Microsoft login elements detected on non-Microsoft domain. Protection system unavailable.";
       warning.innerHTML = `
       <div>
-        <strong>⚠️ Security Warning</strong><br>
-        <small>Microsoft login elements detected on non-Microsoft domain. Protection system unavailable.</small>
+        <strong>${fallbackWarningTitle}</strong><br>
+        <small>${fallbackWarningBody}</small>
       </div>
     `;
 

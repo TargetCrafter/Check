@@ -961,34 +961,33 @@ class CheckOptions {
       );
     });
 
-    // Update page title and subtitle
+
+    // Use chrome.i18n.getMessage for localized section titles and subtitles
     const sectionInfo = {
       general: {
-        title: "General Settings",
-        subtitle:
-          "Configure basic phishing protection behavior and detection features",
+        title: chrome.i18n.getMessage("pageTitleGeneral") || "General Settings",
+        subtitle: chrome.i18n.getMessage("pageSubtitleGeneral") || "Configure basic phishing protection behavior and detection features",
       },
       detection: {
-        title: "Detection Rules",
-        subtitle: "Load custom detection rules for phishing protection",
+        title: chrome.i18n.getMessage("menuDetectionRules") || "Detection Rules",
+        subtitle: chrome.i18n.getMessage("detectionSectionSubtitle") || "Load custom detection rules for phishing protection",
       },
       logs: {
-        title: "Activity Logs",
-        subtitle: "View security events and extension activity",
+        title: chrome.i18n.getMessage("menuActivityLogs") || "Activity Logs",
+        subtitle: chrome.i18n.getMessage("logsSectionSubtitle") || "View security events and extension activity",
       },
       branding: {
-        title: "Branding & White Labeling",
-        subtitle: "Customize the extension's appearance and branding",
+        title: chrome.i18n.getMessage("menuBranding") || "Branding & White Labeling",
+        subtitle: chrome.i18n.getMessage("brandingSectionSubtitle") || "Customize the extension's appearance and branding",
       },
       about: {
-        title: "About Check, a product by CyberDrain",
-        subtitle:
-          "Enterprise-grade protection against Microsoft 365 phishing attacks",
+        title: chrome.i18n.getMessage("menuAbout") || "About Check, a product by CyberDrain",
+        subtitle: chrome.i18n.getMessage("aboutSectionSubtitle") || "Enterprise-grade protection against Microsoft 365 phishing attacks",
       },
     };
 
     const info = sectionInfo[sectionName] || {
-      title: "Settings",
+      title: chrome.i18n.getMessage("optionsTitle") || "Settings",
       subtitle: "",
     };
     this.elements.pageTitle.textContent = info.title;

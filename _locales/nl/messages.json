@@ -1,4 +1,55 @@
 {
+    "fallbackWarningTitle": {
+        "message": "⚠️ Beveiligingswaarschuwing"
+    },
+    "fallbackWarningBody": {
+        "message": "Microsoft-inlogelementen gedetecteerd op een niet-Microsoft domein. Beschermingssysteem niet beschikbaar."
+    },
+    "fallbackBlockedTitle": {
+        "message": "Site geblokkeerd - Microsoft 365-bescherming"
+    },
+    "fallbackBlockedHeader": {
+        "message": "Phishingwebsite geblokkeerd"
+    },
+    "fallbackBlockedStrong": {
+        "message": "Microsoft 365-inlogpagina gedetecteerd op een verdacht domein."
+    },
+    "fallbackBlockedBody": {
+        "message": "Deze site probeert mogelijk uw inloggegevens te stelen en is voor uw veiligheid geblokkeerd."
+    },
+    "fallbackBlockedReasonLabel": {
+        "message": "Reden"
+    },
+    "fallbackBlockedBy": {
+        "message": "Geblokkeerd door: Check"
+    },
+    "fallbackBlockedNoOverride": {
+        "message": "Geen uitzondering mogelijk - neem contact op met uw beheerder als dit onjuist is"
+    },
+    "bannerSuspiciousTitle": {
+        "message": "Verdachte Microsoft 365-inlogpagina"
+    },
+    "bannerScanningTitle": {
+        "message": "Beveiligingsscan bezig"
+    },
+    "bannerCriticalTitle": {
+        "message": "Kritieke beveiligingswaarschuwing"
+    },
+    "bannerHighTitle": {
+        "message": "Beveiligingswaarschuwing met hoog risico"
+    },
+    "bannerRogueTitle": {
+        "message": "KRITIEKE BEVEILIGINGSBEDREIGING"
+    },
+    "validMicrosoftDomainTitle": {
+        "message": "Geverifieerd Microsoft-domein"
+    },
+    "validMicrosoftDomainSubtitle": {
+        "message": "Dit is een authentieke Microsoft-inlogpagina"
+    },
+    "dismiss": {
+        "message": "Sluiten"
+    },
     "logsSectionHeader": {
         "message": "Activiteitenlog"
     },
@@ -278,6 +329,24 @@
     "userInterface": {
         "message": "Gebruikersinterface"
     },
+        "blockedStatus": {
+            "message": "Geblokkeerd"
+        },
+        "suspiciousStatus": {
+            "message": "Verdacht"
+        },
+        "trustedLoginStatus": {
+            "message": "Vertrouwd inlogdomein"
+        },
+        "msLoginUnknownStatus": {
+            "message": "MS Login - Onbekend domein"
+        },
+        "notMicrosoftLoginStatus": {
+            "message": "Geen Microsoft-login"
+        },
+        "noActionRequiredStatus": {
+            "message": "Geen actie vereist"
+        },
     "displayNotificationsDescription": {
         "message": "Toon beveiligingsmeldingen en waarschuwingen"
     },
@@ -438,7 +507,7 @@
         "message": "Conform"
     },
     "support": {
-        "message": "Support"
+        "message": "Ondersteuning"
     },
     "privacy": {
         "message": "Privacy"
