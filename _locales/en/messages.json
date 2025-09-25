@@ -2,6 +2,30 @@
     "logsSectionHeader": {
         "message": "Activity Logs"
     },
+    "enablePageBlocking": {
+        "message": "Enable Page Blocking"
+    },
+    "enableCippReporting": {
+        "message": "Enable CIPP Reporting"
+    },
+    "cippServerUrlLabel": {
+        "message": "CIPP Server URL"
+    },
+    "cippServerUrlPlaceholder": {
+        "message": "https://your-cipp-server.com"
+    },
+    "tenantIdLabel": {
+        "message": "Tenant ID/Domain"
+    },
+    "tenantIdPlaceholder": {
+        "message": "contoso.onmicrosoft.com or tenant-guid"
+    },
+    "showNotifications": {
+        "message": "Show Notifications"
+    },
+    "showValidPageBadge": {
+        "message": "Show Valid Page Badge"
+    },
     "enableDebugLogging": {
         "message": "Enable Debug Logging"
     },
